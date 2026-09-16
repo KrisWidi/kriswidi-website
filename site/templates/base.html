@@ -21,8 +21,8 @@
 <link rel="icon" href="/assets/img/favicon-32.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/Fraunces-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/Jost-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/main.css">
 <script src="/assets/js/config.js"></script>
 {% for ld in page.jsonld %}<script type="application/ld+json">{{ ld | tojson }}</script>
@@ -32,7 +32,7 @@
 <a class="sr-only" href="#main">{{ ui.skip }}</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="{{ ui.home_url }}" aria-label="KWiDi – {{ ui.home }}">{{ logo_horizontal | safe }}</a>
+    <a class="brand" href="{{ ui.home_url }}" aria-label="KWiDi – {{ ui.home }}">{{ signet | safe }}<span class="wordmark">KWiDi</span></a>
     <nav class="nav" aria-label="{{ ui.nav_label }}">
       {% for item in ui.nav %}
         {% if item.children %}
@@ -82,7 +82,7 @@
   <div class="wrap">
     <div class="cols">
       <div class="col">
-        <div class="brand">{{ logo_mono_ivory | safe }}</div>
+        <div class="brand">{{ signet | safe }}<span class="wordmark">KWiDi</span></div>
         <p style="margin-top:12px"><b>{{ ui.footer.claim }}</b></p>
         <p class="muted" style="color:#AD9C8A">{{ ui.footer.text }}</p>
       </div>
