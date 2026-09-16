@@ -36,7 +36,7 @@ APP_KIWI = {
 HOME_FAQ = [
     {"q": "What exactly is the business app?", "a": "A web app for small service businesses: rota, time tracking, work reports with photos, jobs, leave requests, expenses and customer management – all in one place, from your phone. I set it up for you; you and your team use it from day one."},
     {"q": "What does the app cost?", "a": "€249 one-off for the setup, then €39 per month with one employee included. Each additional employee is €9 per month. Cancel monthly, all prices net."},
-    {"q": "Does my team have to install anything?", "a": "No. The app runs in the browser – on any phone, tablet or PC. Your employee gets a link and their login, nothing else. Available in German, English, Spanish and Arabic."},
+    {"q": "Does my team have to install anything?", "a": "No. The app runs in the browser – on any phone, tablet or PC. Your employee gets a link and their login, nothing else. Everyone uses the app in their own language: you plan in English, your employee reads their day in Russian, Spanish or Arabic."},
     {"q": "Do I still need a website?", "a": "The app organises your business on the inside. The website brings customers from the outside. You can get both from me – and if you book the app together with a website package, the setup fee is waived."},
     {"q": "How long does the setup take?", "a": "Your business is usually ready within a week. I create team, customers, sites and your services – you only send me a list. Then there is an onboarding video call."},
     {"q": "What about my data?", "a": "Your data is yours. Times, reports and customer data can be exported at any time, for example as Excel for your accountant."},
@@ -72,7 +72,7 @@ HOME_BLOCKS = [
      "link": {"text": "See a sample report", "href": APP_URL + "#reports"}},
     {"type": "split", "bg": "sand", "frame": True, "image": "app-mein-tag", "alt": "“My day” view in the business app: time clock and today's appointments",
      "label": "My day", "h2": "For your team: one page, one button.",
-     "paragraphs": ["In, break, out. Below it, today's appointments with address and tasks. Your employee does not need to see more – and does not see more. In German, English, Spanish or Arabic."],
+     "paragraphs": ["In, break, out. Below it, today's appointments with address and tasks. Your employee does not need to see more – and does not see more. And in their own language – you plan in English, they read in Russian, Spanish or Arabic."],
      "bullets": [{"title": "Time tracking that adds up.", "text": "Automatic monthly overview, Excel export for payroll."}, {"title": "No installation.", "text": "Open the link, log in, work."}, {"title": "Privacy built in.", "text": "You decide who sees what."}],
      "link": {"text": "See all features", "href": APP_URL}},
     APP_TARIF,
@@ -99,7 +99,7 @@ HOME_BLOCKS = [
 
 APP_FAQ = [
     {"q": "How many employees is the app for?", "a": "From one to about 50. One employee is included in the monthly price, each additional one is €9 per month. From 25 employees we agree a custom price."},
-    {"q": "What about statutory time tracking?", "a": "The app keeps a working-time register with in, break and out per employee, exportable monthly. In Spain this meets the register obligation under Art. 34.9 ET; for other countries we discuss what your accountant needs."},
+    {"q": "What about statutory time tracking?", "a": "The app keeps a working-time register with in, break and out per employee, exportable monthly. The register follows the Spanish Art. 34.9 ET; whether it is sufficient for your business and country is something to confirm with your accountant or lawyer – I set up what you need."},
     {"q": "Can I bring existing data?", "a": "Yes. I import staff, customers and sites from Excel or another tool. That is part of the setup."},
     {"q": "What happens if I cancel?", "a": "You cancel at month end, export your data beforehand – times, reports, customers – and that's it. No trailing costs."},
     {"q": "Can every employee see everything?", "a": "No. Employees see their day, their hours and their reports. You and your office staff see everything. We define who has which rights during setup."},
@@ -136,8 +136,8 @@ APP_PAGE = {
          "paragraphs": ["Open services on the right, your staff on the left. Drag, drop, the app calculates hours and shows conflicts. Week view for the overview, demand view for sites with fixed times, suggestion for a quick start."],
          "bullets": [{"title": "Target times per site.", "text": "Pool on Mondays, garden on Thursdays – the app reminds you."}, {"title": "Absences included.", "text": "Leave and sick days block automatically."}, {"title": "Everyone sees their day.", "text": "On their phone, with address and tasks."}]},
         {"type": "split", "id": "time-tracking", "image_left": True, "bg": "sand", "frame": True, "image": "app-mein-tag", "alt": "My day: time clock with in, break, out and today's appointments", "label": "Time tracking", "h2": "Clock in: in, break, out.",
-         "paragraphs": ["One button, three states. Times flow into the monthly overview per employee, corrections go to you as a request. At month end you export an Excel for payroll – in Spain directly as a working-time register under Art. 34.9 ET."],
-         "bullets": [{"title": "No paper, no recalculating.", "text": "Hours, breaks, overtime – automatic."}, {"title": "Export for your accountant.", "text": "Monthly, as Excel or PDF."}, {"title": "Four languages.", "text": "German, English, Spanish, Arabic – every employee chooses."}]},
+         "paragraphs": ["One button, three states. Times flow into the monthly overview per employee, corrections go to you as a request. At month end you export an Excel for payroll – in Spain in the format of the working-time register under Art. 34.9 ET."],
+         "bullets": [{"title": "No paper, no recalculating.", "text": "Hours, breaks, overtime – automatic."}, {"title": "Export for your accountant.", "text": "Monthly, as Excel or PDF."}, {"title": "Any language.", "text": "You plan in English, every employee reads the app in their own language – Russian, Spanish, Arabic, whatever they need."}]},
         {"type": "split", "id": "reports", "frame": True, "image": "app-report", "alt": "Work report with checklist items, photos and status Approved", "label": "Reports", "h2": "Report: checklist, photos, send.",
          "paragraphs": ["Every service has checklist items from the builder – pool cleaned, filter checked, chlorine 1.2 mg/l. The employee ticks, photographs, adds a remark. You review, approve, the customer receives the report by e-mail – with your logo, as PDF."],
          "bullets": [{"title": "Workflow with approval.", "text": "Draft, submitted, returned, approved, sent."}, {"title": "Report templates in your design.", "text": "Set up by me during onboarding."}, {"title": "Readings as a history.", "text": "Chlorine, pH, temperature, meter readings – per site over months."}]},

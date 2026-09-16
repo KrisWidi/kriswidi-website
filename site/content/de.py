@@ -47,7 +47,7 @@ UI = {
             {"text": "Handwerk", "href": "/fuer/handwerk"},
             {"text": "Praxen & Studios", "href": "/fuer/praxen-studios"},
         ],
-        "contact_label": "Kontakt",
+        "contact_label": "Kontakt", "contact_link": "Zum Kontaktformular",
         "reply": "Antwort innerhalb von 24 Stunden an Werktagen",
         "imprint": "Impressum", "imprint_href": "/impressum",
         "privacy": "Datenschutz", "privacy_href": "/datenschutz",
@@ -135,7 +135,7 @@ PAGES.append({
     "description": "Planen, stempeln, berichten – von der App aus. Dienstplan, Zeiterfassung und Arbeitsberichte für Reinigung, Hausbetreuung, Handwerk und Garten. Eingerichtet ab 249 €, dann 39 €/Monat. Dazu Websites, die gesehen werden.",
     "template": "page",
     "jsonld": [
-        {"@context": "https://schema.org", "@type": "Organization", "name": "KWiDi", "url": "https://kriswidi.com", "logo": "https://kriswidi.com/assets/img/logo-stacked.svg", "email": "kristinaswiderski@outlook.com", "sameAs": []},
+        {"@context": "https://schema.org", "@type": "Organization", "name": "KWiDi", "url": "https://kriswidi.com", "logo": "https://kriswidi.com/assets/img/logo-stacked.svg", "sameAs": []},
         {"@context": "https://schema.org", "@type": "WebSite", "name": "KWiDi", "url": "https://kriswidi.com", "inLanguage": ["de", "en"]},
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in HOME_FAQ]},
     ],
@@ -400,7 +400,7 @@ PAGES.append({"url": "/404", "title": "Seite nicht gefunden – KWiDi", "descrip
     "blocks": [{"type": "simple", "h1": "Diese Seite gibt es nicht.", "paragraphs": ["Vielleicht ist der Link alt – oder ich habe umgebaut. Hier geht's weiter:"], "buttons": [{"text": "Startseite", "href": "/"}, {"text": "Pakete & Preise", "href": "/pakete"}, {"text": "Kontakt", "href": "/kontakt"}]}]})
 
 IMPRESSUM_HTML = """
-<p class="lede">Angaben gemäß § 5 DDG</p>
+<p class="lede">Angaben gemäß Art. 10 LSSI-CE (Spanien) und § 5 DDG</p>
 <p><b>KWiDi</b> ist eine Marke der<br>
 <b>Swiderski Property Management S.L.</b><br>
 Calle San Miguel 36, PTA B5<br>
@@ -408,7 +408,7 @@ Calle San Miguel 36, PTA B5<br>
 <h2>Vertreten durch</h2>
 <p>Patrick Swiderski, Administrador</p>
 <h2>Kontakt</h2>
-<p>E-Mail: <a href="mailto:kristinaswiderski@outlook.com">kristinaswiderski@outlook.com</a><br>Telefon: +34 601 993 373</p>
+<p>E-Mail: <a href="mailto:kristina@swiderskipropertymanagement.com">kristina@swiderskipropertymanagement.com</a></p>
 <h2>Registereintrag</h2>
 <p>Eingetragen im Registro Mercantil de las Illes Balears, Palma de Mallorca<br>NIF: B21648753</p>
 <h2>Umsatzsteuer-Identifikationsnummer</h2>
@@ -416,7 +416,7 @@ Calle San Miguel 36, PTA B5<br>
 <h2>Verantwortlich für den Inhalt</h2>
 <p>Kristina Swiderski, Anschrift wie oben</p>
 <h2>Streitbeilegung</h2>
-<p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" rel="noopener" target="_blank">https://ec.europa.eu/consumers/odr/</a>. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+<p>Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 <h2>Haftung für Inhalte und Links</h2>
 <p>Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine Gewähr. Für Inhalte externer Links sind ausschließlich deren Betreiber verantwortlich; zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar.</p>
 <p class="muted">Alle Angebote auf dieser Website richten sich an Unternehmer. Preise verstehen sich netto zzgl. gesetzlicher Umsatzsteuer.</p>
@@ -427,11 +427,11 @@ PAGES.append({"url": "/impressum", "title": "Impressum – KWiDi", "description"
 DATENSCHUTZ_HTML = """
 <p class="lede">Stand: September 2026</p>
 <h2>1. Verantwortlicher</h2>
-<p>Swiderski Property Management S.L. (Marke KWiDi), Calle San Miguel 36, PTA B5, 07002 Palma de Mallorca, Spanien · E-Mail: <a href="mailto:kristinaswiderski@outlook.com">kristinaswiderski@outlook.com</a></p>
+<p>Swiderski Property Management S.L. (Marke KWiDi), Calle San Miguel 36, PTA B5, 07002 Palma de Mallorca, Spanien · E-Mail: <a href="mailto:kristina@swiderskipropertymanagement.com">kristina@swiderskipropertymanagement.com</a></p>
 <h2>2. Allgemeines</h2>
 <p>Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung dieser Website und unserer Leistungen erforderlich ist oder du eingewilligt hast. Rechtsgrundlagen sind Art. 6 Abs. 1 lit. a (Einwilligung), lit. b (Vertrag/Anbahnung) und lit. f (berechtigtes Interesse) DSGVO.</p>
 <h2>3. Hosting und Server-Logfiles</h2>
-<p>Diese Website wird bei einem externen Hosting-Anbieter innerhalb der EU gehostet. Beim Aufruf werden automatisch Server-Logfiles verarbeitet (IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browsertyp, Referrer). Diese Daten dienen der Sicherheit und Stabilität des Betriebs (Art. 6 Abs. 1 lit. f DSGVO) und werden nach spätestens 14 Tagen gelöscht. Mit dem Hosting-Anbieter besteht ein Vertrag zur Auftragsverarbeitung.</p>
+<p>Diese Website wird über GitHub Pages gehostet, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf verarbeitet GitHub automatisch Server-Logfiles (insbesondere IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browsertyp, Referrer), um die Sicherheit und Integrität des Dienstes zu gewährleisten. Die Nutzung erfolgt auf Grundlage unseres berechtigten Interesses an einer sicheren und schnellen Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO). Dabei können Daten in die USA übermittelt werden; GitHub ist nach dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen: <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">GitHub Privacy Statement</a>.</p>
 <h2>4. Kontaktformular und E-Mail</h2>
 <p>Wenn du uns über das Formular oder per E-Mail kontaktierst, verarbeiten wir die von dir angegebenen Daten (Name, E-Mail-Adresse, Angaben zum Betrieb, Nachricht, optional Links) zur Bearbeitung deiner Anfrage und für Anschlussfragen (Art. 6 Abs. 1 lit. b DSGVO). Die Formulardaten werden über den Dienst FormSubmit (formsubmit.co) an unsere E-Mail-Adresse weitergeleitet; der Anbieter verarbeitet die Daten ausschließlich zur Zustellung. Wir speichern Anfragen, bis die Bearbeitung abgeschlossen ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
 <h2>5. Cookies und Einwilligung</h2>
@@ -441,7 +441,7 @@ DATENSCHUTZ_HTML = """
 <h2>7. Meta-Pixel (Facebook, Instagram)</h2>
 <p>Mit deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) nutzen wir das Meta-Pixel der Meta Platforms Ireland Limited, Merrion Road, Dublin 4, Irland, um die Wirksamkeit unserer Anzeigen zu messen und Zielgruppen zu bilden. Dabei können Daten an Meta Platforms Inc. in die USA übermittelt werden; Meta ist nach dem EU-US Data Privacy Framework zertifiziert. Wir sind mit Meta gemeinsam verantwortlich im Sinne von Art. 26 DSGVO für die Erhebung und Übermittlung; die weitere Verarbeitung verantwortet Meta. Informationen: <a href="https://www.facebook.com/privacy/policy" rel="noopener" target="_blank">facebook.com/privacy/policy</a>.</p>
 <h2>8. Schriftarten</h2>
-<p>Die verwendeten Schriften (Fraunces, Jost) werden lokal auf unserem Server bereitgestellt. Es findet keine Verbindung zu Servern von Google statt.</p>
+<p>Die verwendeten Schriften (Manrope, Inter) werden lokal auf unserem Server bereitgestellt. Es findet keine Verbindung zu Servern von Google statt.</p>
 <h2>9. Links zu Instagram und Facebook</h2>
 <p>Unsere Website enthält Links zu unseren Profilen bei Instagram und Facebook. Es werden keine Inhalte dieser Plattformen eingebettet; erst beim Klick auf einen Link verlässt du unsere Website und es gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</p>
 <h2>10. Deine Rechte</h2>

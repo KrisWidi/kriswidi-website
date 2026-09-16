@@ -57,7 +57,7 @@ UI = {
             {"text": "Trades", "href": "/en/for/trades"},
             {"text": "Practices & studios", "href": "/en/for/practices-studios"},
         ],
-        "contact_label": "Contact",
+        "contact_label": "Contact", "contact_link": "Go to the contact form",
         "reply": "Reply within 24 hours on working days",
         "imprint": "Legal notice", "imprint_href": "/en/legal-notice",
         "privacy": "Privacy", "privacy_href": "/en/privacy",
@@ -143,7 +143,7 @@ PAGES.append({
     "description": "Plan, clock in, report – from the app. Rota, time tracking and work reports for cleaning, property care, trades and gardening. Set up from €249, then €39/month. Plus websites that get seen.",
     "template": "page",
     "jsonld": [
-        {"@context": "https://schema.org", "@type": "Organization", "name": "KWiDi", "url": "https://kriswidi.com", "logo": "https://kriswidi.com/assets/img/logo-stacked.svg", "email": "kristinaswiderski@outlook.com", "sameAs": []},
+        {"@context": "https://schema.org", "@type": "Organization", "name": "KWiDi", "url": "https://kriswidi.com", "logo": "https://kriswidi.com/assets/img/logo-stacked.svg", "sameAs": []},
         {"@context": "https://schema.org", "@type": "WebSite", "name": "KWiDi", "url": "https://kriswidi.com", "inLanguage": ["de", "en"]},
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in HOME_FAQ]},
     ],
@@ -383,14 +383,14 @@ PAGES.append({"url": "/en/404", "title": "Page not found – KWiDi", "descriptio
     "blocks": [{"type": "simple", "h1": "This page doesn't exist.", "paragraphs": ["Maybe the link is old – or I've rebuilt. Continue here:"], "buttons": [{"text": "Home", "href": "/en/"}, {"text": "Packages & prices", "href": "/en/packages"}, {"text": "Contact", "href": "/en/contact"}]}]})
 
 LEGAL_HTML = """
-<p class="lede">Information according to § 5 DDG (German Digital Services Act). The German version is legally binding.</p>
+<p class="lede">Information according to Art. 10 LSSI-CE (Spain) and § 5 DDG (Germany). The German version is legally binding.</p>
 <p><b>KWiDi</b> is a brand of<br><b>Swiderski Property Management S.L.</b><br>Calle San Miguel 36, PTA B5<br>07002 Palma de Mallorca, Illes Balears, Spain</p>
 <h2>Represented by</h2><p>Patrick Swiderski, Administrador</p>
-<h2>Contact</h2><p>Email: <a href="mailto:kristinaswiderski@outlook.com">kristinaswiderski@outlook.com</a><br>Phone: +34 601 993 373</p>
+<h2>Contact</h2><p>Email: <a href="mailto:kristina@swiderskipropertymanagement.com">kristina@swiderskipropertymanagement.com</a></p>
 <h2>Register entry</h2><p>Registro Mercantil de las Illes Balears, Palma de Mallorca · NIF: B21648753</p>
 <h2>VAT ID</h2><p>ESB21648753</p>
 <h2>Responsible for content</h2><p>Kristina Swiderski, address as above</p>
-<h2>Dispute resolution</h2><p>The European Commission provides a platform for online dispute resolution: <a href="https://ec.europa.eu/consumers/odr/" rel="noopener" target="_blank">https://ec.europa.eu/consumers/odr/</a>. We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.</p>
+<h2>Dispute resolution</h2><p>We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.</p>
 <h2>Liability for content and links</h2><p>The content of this website was created with great care; we do not guarantee its accuracy, completeness or timeliness. The operators of linked pages are solely responsible for their content.</p>
 <p class="muted">All offers on this website are aimed at businesses. Prices are net plus statutory VAT.</p>
 """
@@ -399,14 +399,14 @@ PAGES.append({"url": "/en/legal-notice", "title": "Legal notice – KWiDi", "des
 
 PRIVACY_HTML = """
 <p class="lede">Last updated: September 2026. The German version is legally binding.</p>
-<h2>1. Controller</h2><p>Swiderski Property Management S.L. (brand KWiDi), Calle San Miguel 36, PTA B5, 07002 Palma de Mallorca, Spain · Email: <a href="mailto:kristinaswiderski@outlook.com">kristinaswiderski@outlook.com</a></p>
+<h2>1. Controller</h2><p>Swiderski Property Management S.L. (brand KWiDi), Calle San Miguel 36, PTA B5, 07002 Palma de Mallorca, Spain · Email: <a href="mailto:kristina@swiderskipropertymanagement.com">kristina@swiderskipropertymanagement.com</a></p>
 <h2>2. General</h2><p>We process personal data only as far as necessary to provide this website and our services, or with your consent. Legal bases are Art. 6(1)(a) (consent), (b) (contract) and (f) (legitimate interest) GDPR.</p>
-<h2>3. Hosting and server logs</h2><p>This website is hosted by an external provider within the EU. Server log files (IP address, date and time, page requested, browser type, referrer) are processed automatically for security and stability (Art. 6(1)(f) GDPR) and deleted after 14 days at the latest. A data processing agreement is in place with the hosting provider.</p>
+<h2>3. Hosting and server logs</h2><p>This website is hosted on GitHub Pages, a service of GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. When you visit, GitHub automatically processes server log files (in particular IP address, date and time, page requested, browser type, referrer) to ensure the security and integrity of the service. This is based on our legitimate interest in providing the website securely and quickly (Art. 6(1)(f) GDPR). Data may be transferred to the USA; GitHub is certified under the EU-US Data Privacy Framework. More information: <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">GitHub Privacy Statement</a>.</p>
 <h2>4. Contact form and email</h2><p>When you contact us via the form or by email, we process the data you provide (name, email address, business details, message, optional links) to handle your enquiry and follow-up questions (Art. 6(1)(b) GDPR). Form data is forwarded to our email address via the service FormSubmit (formsubmit.co), which processes the data solely for delivery. We keep enquiries until they are dealt with and no statutory retention periods apply.</p>
 <h2>5. Cookies and consent</h2><p>Technically necessary storage (e.g. your cookie choice) is used without consent. Statistics and marketing cookies are only set once you agree in the cookie banner. Your choice is stored locally in your browser and can be changed or withdrawn at any time via “Cookie settings” in the footer.</p>
 <h2>6. Google Analytics 4</h2><p>With your consent (Art. 6(1)(a) GDPR) we use Google Analytics 4 by Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland. Google Analytics uses cookies and similar technologies to analyse website usage. IP addresses are truncated. Data may be transferred to Google LLC in the USA; Google is certified under the EU-US Data Privacy Framework. We use Google Consent Mode so no cookies are set without consent. Retention: 14 months. More: <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">policies.google.com/privacy</a>.</p>
 <h2>7. Meta Pixel (Facebook, Instagram)</h2><p>With your consent (Art. 6(1)(a) GDPR) we use the Meta Pixel by Meta Platforms Ireland Limited, Merrion Road, Dublin 4, Ireland, to measure our ads and build audiences. Data may be transferred to Meta Platforms Inc. in the USA; Meta is certified under the EU-US Data Privacy Framework. We are jointly responsible with Meta (Art. 26 GDPR) for collection and transfer; Meta is responsible for further processing. More: <a href="https://www.facebook.com/privacy/policy" rel="noopener" target="_blank">facebook.com/privacy/policy</a>.</p>
-<h2>8. Fonts</h2><p>The fonts used (Fraunces, Jost) are hosted locally on our server. No connection to Google servers is made.</p>
+<h2>8. Fonts</h2><p>The fonts used (Manrope, Inter) are hosted locally on our server. No connection to Google servers is made.</p>
 <h2>9. Links to Instagram and Facebook</h2><p>Our website links to our Instagram and Facebook profiles. No content from these platforms is embedded; only when you click a link do you leave our website, and the respective provider's privacy policy applies.</p>
 <h2>10. Your rights</h2><p>You have the right to access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction (Art. 18), data portability (Art. 20) and objection (Art. 21 GDPR). You may withdraw consent at any time with effect for the future. You also have the right to lodge a complaint with a supervisory authority – in Spain the Agencia Española de Protección de Datos (AEPD).</p>
 <h2>11. Changes</h2><p>We update this policy when the legal situation or our services change. The version published here applies.</p>
