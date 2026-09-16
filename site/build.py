@@ -13,10 +13,10 @@ sys.path.insert(0, os.path.join(ROOT, "content"))
 
 SITE = {
     "url": "https://kriswidi.com",
-    "email": "kristinaswiderski@outlook.com",   # später: hallo@kriswidi.com
+    "email": "kristina@swiderskipropertymanagement.com",   # später: hallo@kriswidi.com
     "instagram": "https://www.instagram.com/",   # KWiDi-Handle eintragen
     "facebook": "https://www.facebook.com/",
-    "form_endpoint": "https://formsubmit.co/ajax/kristinaswiderski@outlook.com",  # FormSubmit: erste Anfrage per E-Mail bestätigen              # z. B. https://api.web3forms.com/submit oder https://formspree.io/f/xxxx
+    "form_endpoint": "https://formsubmit.co/ajax/kristina@swiderskipropertymanagement.com",  # FormSubmit: erste Anfrage per E-Mail bestätigen              # z. B. https://api.web3forms.com/submit oder https://formspree.io/f/xxxx
 }
 
 de = importlib.import_module("de")
