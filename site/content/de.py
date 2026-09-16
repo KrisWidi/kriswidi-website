@@ -12,23 +12,28 @@ UI = {
     "cta": "Anfragen", "cta_href": "/kontakt",
     "thanks_url": "/danke",
     "nav": [
-        {"text": "Pakete", "href": "/pakete"},
-        {"text": "Branchen", "href": "/fuer/gastronomie", "children": [
+        {"text": "Betriebs-App", "href": "/betriebs-app"},
+        {"text": "Preise", "href": "/betriebs-app#preise"},
+        {"text": "Websites", "href": "/pakete", "children": [
+            {"text": "Website-Pakete", "sub": "Website, Google, Instagram – ab 549 €", "href": "/pakete"},
+            {"text": "Website ohne Anfragen", "sub": "Umbau bestehender Websites", "href": "/website-ohne-anfragen"},
+            {"text": "Sichtbarkeits-Check", "sub": "Analyse für 60 €", "href": "/sichtbarkeits-check"},
             {"text": "Gastronomie", "sub": "Restaurants, Cafés, Bars", "href": "/fuer/gastronomie"},
             {"text": "Ferienvermietung", "sub": "Ferienhaus & Ferienwohnung", "href": "/fuer/ferienvermietung"},
             {"text": "Handwerk", "sub": "Handwerksbetriebe", "href": "/fuer/handwerk"},
             {"text": "Praxen & Studios", "sub": "Physio, Kosmetik, Heilpraktik", "href": "/fuer/praxen-studios"},
         ]},
-        {"text": "Website ohne Anfragen", "href": "/website-ohne-anfragen"},
         {"text": "So funktioniert's", "href": "/so-funktioniert-es"},
         {"text": "Über mich", "href": "/ueber-mich"},
     ],
     "footer": {
-        "claim": "Websites, die gesehen werden.",
-        "text": "Website, Google-Unternehmensprofil, Instagram und Facebook – fertig eingerichtet, zum Festpreis, aus einer Hand.",
+        "claim": "Planen. Stempeln. Berichten. Fertig.",
+        "text": "Die Betriebs-App für Kleinbetriebe – Dienstplan, Zeiterfassung, Berichte. Dazu Website, Google-Profil und Instagram, fertig eingerichtet, aus einer Hand.",
         "pages_label": "Seiten",
         "pages": [
-            {"text": "Pakete & Preise", "href": "/pakete"},
+            {"text": "Betriebs-App", "href": "/betriebs-app"},
+            {"text": "App-Preise", "href": "/betriebs-app#preise"},
+            {"text": "Website-Pakete & Preise", "href": "/pakete"},
             {"text": "Website ohne Anfragen", "href": "/website-ohne-anfragen"},
             {"text": "Sichtbarkeits-Check", "href": "/sichtbarkeits-check"},
             {"text": "So funktioniert's", "href": "/so-funktioniert-es"},
@@ -61,8 +66,8 @@ UI = {
         "text": "Schreib mir in zwei, drei Sätzen, was du vorhast. Ich antworte innerhalb von 24 Stunden an Werktagen – per E-Mail, ohne Verkaufsgespräch am Telefon.",
         "direct": "Lieber direkt per Mail?",
         "name": "Name", "email": "E-Mail", "industry": "Branche", "interest": "Interesse",
-        "industries": ["Gastronomie", "Ferienvermietung", "Handwerk", "Praxis & Studio", "Andere"],
-        "interests": ["Neue Website", "Bestehende Website verbessern", "Sichtbarkeits-Check", "Noch unklar"],
+        "industries": ["Reinigung & Hausbetreuung", "Handwerk", "Garten & Pool", "Gastronomie", "Ferienvermietung", "Praxis & Studio", "Andere"],
+        "interests": ["Betriebs-App", "Betriebs-App + Website", "Neue Website", "Bestehende Website verbessern", "Sichtbarkeits-Check", "Noch unklar"],
         "link": "Link zu Website oder Instagram (optional)", "message": "Nachricht",
         "business": "Betrieb", "link_site": "Link zu deiner Website", "link_google": "Link zum Google-Profil", "link_insta": "Link zu Instagram",
         "check_msg": "Was dich am meisten stört (optional)",
@@ -113,6 +118,7 @@ def industry_page(slug, title, desc, hero, blocks, industry, faq, jsonld_name):
         "blocks": [hero] + blocks + [{"type": "faq", "items": faq}, {**FORM, "industry": industry}],
     }
 
+from app_de import HOME_BLOCKS as APP_HOME_BLOCKS, HOME_FAQ as APP_HOME_FAQ, APP_PAGE, APP_TARIF
 PAGES = []
 
 # ---------------- STARTSEITE ----------------
@@ -123,51 +129,19 @@ HOME_FAQ = [
     {"q": "Warum nicht einfach mit KI oder Wix selbst bauen?", "a": "Kannst du. Dann hast du eine Seite – aber kein eingerichtetes Google-Profil, kein Instagram, keine Texte, die verkaufen, und niemanden, den du fragen kannst. Die Website ist der einfachste Teil. Die Wege dorthin sind die Arbeit."},
     {"q": "Kann ich dich anrufen?", "a": "Ich arbeite per E-Mail – so bleibt alles nachlesbar und ich kann mich konzentriert um dein Projekt kümmern. Du bekommst innerhalb von 24 Stunden an Werktagen eine Antwort."},
 ]
+HOME_FAQ = APP_HOME_FAQ
 PAGES.append({
-    "url": "/", "title": "Website erstellen lassen ab 549 € – KWiDi",
-    "description": "Website, Google-Profil und Instagram aus einer Hand – fertig eingerichtet, zum Festpreis. Für Gastronomie, Ferienvermietung, Handwerk und Studios.",
+    "url": "/", "title": "Betriebs-App für Kleinbetriebe: Dienstplan, Zeiterfassung, Berichte – KWiDi",
+    "description": "Planen, stempeln, berichten – von der App aus. Dienstplan, Zeiterfassung und Arbeitsberichte für Reinigung, Hausbetreuung, Handwerk und Garten. Eingerichtet ab 249 €, dann 39 €/Monat. Dazu Websites, die gesehen werden.",
     "template": "page",
     "jsonld": [
         {"@context": "https://schema.org", "@type": "Organization", "name": "KWiDi", "url": "https://kriswidi.com", "logo": "https://kriswidi.com/assets/img/logo-stacked.svg", "email": "kristinaswiderski@outlook.com", "sameAs": []},
         {"@context": "https://schema.org", "@type": "WebSite", "name": "KWiDi", "url": "https://kriswidi.com", "inLanguage": ["de", "en"]},
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in HOME_FAQ]},
     ],
-    "blocks": [
-        {"type": "hero", "label": "Website · Google · Instagram · Facebook", "h1": "Websites, die gesehen werden.",
-         "text": "Deine Website, dein Google-Profil und dein Instagram – fertig eingerichtet, zum Festpreis, von einer Person. Für Gastronomie, Ferienvermietung, Handwerk und Studios.",
-         "primary": {"text": "Unverbindlich anfragen", "href": "#anfrage"}, "secondary": {"text": "Pakete ab 549 € ansehen", "href": "/pakete"},
-         "kiwi": {"hint_desktop": "Fahre über die Kerne", "hint_mobile": "Tippe auf einen Kern", "aria": "Die KWiDi-Pakete als Kerne einer Kiwi", "items": [
-             {"name": "Sichtbarkeits-Check", "price": "60 €", "href": "/sichtbarkeits-check"},
-             {"name": "Website", "price": "ab 549 €", "href": "/pakete#website"},
-             {"name": "Website + Google", "price": "729 €", "href": "/pakete#website-google"},
-             {"name": "Website + Google + Social", "price": "1.490 €", "href": "/pakete#website-google-social"},
-             {"name": "Rundum", "price": "2.990 €", "href": "/pakete#rundum"},
-             {"name": "Individuell", "price": "auf Anfrage", "href": "/pakete#individuell"}]}},
-        {"type": "text", "bg": "sand", "h2": "Die meisten Websites bringen nichts. Nicht, weil sie schlecht aussehen.",
-         "paragraphs": ["Sondern weil sie nur da sind. Niemand findet sie, niemand versteht in fünf Sekunden, was du anbietest, und niemand weiß, wie er dich erreicht. Eine Website allein ist wie ein Restaurant ohne Schild an der Straße.", "Deshalb baue ich nicht nur die Website. Ich baue die Wege, über die Gäste zu dir finden."]},
-        {"type": "chain", "h2": "So werden aus Klicks Gäste.", "items": CHAIN, "link": {"text": "Ausführlich erklärt", "href": "/so-funktioniert-es"}},
-        {"type": "cards", "bg": "sand", "h2": "Für Betriebe, bei denen morgen jemand kommen soll.", "cols": 4, "items": [
-            {"title": "Gastronomie", "text": "Restaurants, Cafés, Bars. Speisekarte, Reservierung, Google Maps, Instagram. Damit Dienstag nicht leer bleibt.", "href": "/fuer/gastronomie"},
-            {"title": "Ferienvermietung", "text": "Ferienhaus oder Ferienwohnung, in Deutschland oder im Ausland. Mehrsprachig, mit Direktanfrage.", "href": "/fuer/ferienvermietung"},
-            {"title": "Handwerk", "text": "Wer dich googelt, soll dich beauftragen. Google-Profil, Bewertungen, Anfrage mit einem Klick.", "href": "/fuer/handwerk"},
-            {"title": "Praxen & Studios", "text": "Physio, Kosmetik, Massage, Heilpraktik, Tierarzt. Professioneller Auftritt, Terminanfrage inklusive.", "href": "/fuer/praxen-studios"},
-        ]},
-        {"type": "packages", "h2": "Vier Pakete. Alle Preise stehen hier.", "intro": "Einmal zahlen, die Website gehört dir. Kein Abo, keine Bindung. Alle Preise netto zzgl. MwSt.", "items": PACKAGES_SHORT, "link": {"text": "Alle Details und was nicht enthalten ist", "href": "/pakete"}},
-        {"type": "highlight", "h2": "Du hast schon eine Website – und sie bringt nichts?", "paragraphs": ["Dann bist du nicht allein. Ich schaue mir Website, Google-Profil und Instagram an und schreibe dir in Klartext, woran es liegt. Der Sichtbarkeits-Check kostet 60 € – und wird dir bei jedem Paket voll angerechnet."],
-         "buttons": [{"text": "Zum Sichtbarkeits-Check", "href": "/sichtbarkeits-check"}, {"text": "Mehr über den Umbau", "href": "/website-ohne-anfragen"}], "big": "60 €"},
-        {"type": "split", "image_left": True, "image": "about-hands", "alt": "Hände über einem Notizbuch, Espressotasse, Schatten eines Palmblatts", "h2": "Eine Person. Ein Preis. Keine Warteschleife.",
-         "paragraphs": ["Hinter KWiDi stehe ich, Kristina. Ich habe ein Instagram-Profil in vier Monaten auf 6.000 Follower gebracht – organisch, ohne Anzeigen – und führe den Online-Auftritt eines Premium-Dienstleisters auf Mallorca, wo ich lebe. Ich weiß, worauf es ankommt, weil ich es täglich selbst mache."],
-         "bullets": [{"title": "Alles aus einer Hand.", "text": "Website, Google, Instagram, Facebook – ein Ansprechpartner, ein Preis."}, {"title": "Du lieferst fast nichts.", "text": "Texte und Bilder kommen von mir. Du gibst frei."}, {"title": "Du verstehst, was du kaufst.", "text": "Ich erkläre dir, wie daraus Gäste werden – ohne Fachchinesisch."}, {"title": "Danach nicht allein.", "text": "Änderungswünsche später? Gleiche Ansprechpartnerin."}],
-         "link": {"text": "Mehr über mich", "href": "/ueber-mich"}},
-        {"type": "cards", "bg": "sand", "h2": "Was ich selbst aufgebaut habe.", "cols": 3, "items": [
-            {"big": "6.000", "title": "Follower in 4 Monaten", "text": "Ein Instagram-Profil, organisch aufgebaut. Ohne Anzeigen, ohne Gewinnspiele – mit Beiträgen, die Menschen wirklich sehen wollten."},
-            {"big": "1", "title": "Premium-Dienstleister, komplett online", "text": "Website, Google-Profil und Social Media eines Betriebs für Finca-Betreuung und Vermietung – aufgebaut und laufend geführt."},
-            {"big": "Du?", "title": "Dein Betrieb hier", "text": "Die ersten Kundenprojekte bekommen einen Sonderpreis – und einen Platz auf dieser Seite.", "href": "#anfrage", "link_text": "Anfragen"},
-        ]},
-        {"type": "faq", "items": HOME_FAQ},
-        FORM,
-    ],
+    "blocks": [dict(b, items=PACKAGES_SHORT) if b.get("type") == "packages" else b for b in APP_HOME_BLOCKS] + [FORM],
 })
+PAGES.append(dict(APP_PAGE, blocks=APP_PAGE["blocks"] + [dict(FORM, interest="Betriebs-App")]))
 
 # ---------------- PAKETE ----------------
 PAKETE_FAQ = [
@@ -178,8 +152,8 @@ PAKETE_FAQ = [
     {"q": "Wie lange dauert es?", "a": "Das hängt davon ab, wie schnell du Rückmeldung gibst. In der Regel ist eine Website in zwei bis drei Wochen online."},
 ]
 PAGES.append({
-    "url": "/pakete", "title": "Website Pakete & Preise – Festpreis ab 549 € | KWiDi",
-    "description": "Vier Pakete, alle Preise netto und öffentlich: Website ab 549 €, mit Google-Profil 729 €, mit Instagram & Facebook 1.490 €, Rundum 2.990 €. Kein Abo.",
+    "url": "/pakete", "title": "Preise: Betriebs-App ab 39 €/Monat, Website ab 549 € | KWiDi",
+    "description": "Alle Preise öffentlich: Betriebs-App 249 € Einrichtung + 39 €/Monat. Website ab 549 €, mit Google-Profil 729 €, mit Instagram & Facebook 1.490 €, Rundum 2.990 €. Kein Abo.",
     "template": "page",
     "jsonld": [
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in PAKETE_FAQ]},
@@ -187,8 +161,9 @@ PAGES.append({
             {"@type": "Offer", "name": p["name"], "price": p["price"].replace("ab ", "").replace(" €", "").replace(".", ""), "priceCurrency": "EUR", "priceSpecification": {"@type": "UnitPriceSpecification", "valueAddedTaxIncluded": False, "priceCurrency": "EUR"}, "seller": {"@type": "Organization", "name": "KWiDi"}} for p in PACKAGES_FULL]},
     ],
     "blocks": [
-        {"type": "hero", "short": True, "label": "Preise", "h1": "Pakete und Preise – einmal zahlen, gehört dir.", "text": "Keine Abos, keine versteckten Kosten, keine Überraschung nach zwölf Monaten. Alle Preise netto zzgl. MwSt."},
-        {"type": "packages", "bg": "sand", "h2": "Die vier Pakete im Überblick", "items": PACKAGES_FULL,
+        {"type": "hero", "short": True, "label": "Preise", "h1": "Pakete und Preise – alles steht hier.", "text": "Die Betriebs-App monatlich, jederzeit kündbar. Websites einmalig – gehören dir. Keine versteckten Kosten. Alle Preise netto zzgl. MwSt."},
+        dict(APP_TARIF, bg="ivory", h2="Die Betriebs-App: einrichten lassen, monatlich nutzen.", intro="Dienstplan, Zeiterfassung, Berichte, Aufträge, Kosten – für dein ganzes Team. Monatlich kündbar, alle Preise netto.", link={"text": "Alle Funktionen der Betriebs-App", "href": "/betriebs-app"}),
+        {"type": "packages", "bg": "sand", "h2": "Websites: vier Pakete, einmal zahlen, gehört dir.", "items": PACKAGES_FULL,
          "extra": {"id": "individuell", "name": "Individuell", "price": "auf Anfrage", "text": "Mehr Seiten, andere Sprachen, längere Betreuung, ein Betreuungskonzept nur für dich. Schreib mir, was du brauchst.", "button": "Anfragen"}},
         {"type": "list", "rows": True, "h2": "Zusätzlich buchbar", "items": [
             {"title": "Werbeanzeigen", "text": "Bild-Anzeigen auf Instagram und Facebook – Preis auf Anfrage. Das Werbebudget zahlst du direkt an Meta, es ist nicht im Preis enthalten."},

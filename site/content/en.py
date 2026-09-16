@@ -6,7 +6,7 @@ PREFIX = "/en"
 
 # Mapping DE url -> EN url (used for hreflang / language switch)
 URL_MAP = {
-    "/": "/en/", "/pakete": "/en/packages", "/website-ohne-anfragen": "/en/website-no-enquiries",
+    "/": "/en/", "/betriebs-app": "/en/business-app", "/pakete": "/en/packages", "/website-ohne-anfragen": "/en/website-no-enquiries",
     "/sichtbarkeits-check": "/en/visibility-check", "/fuer/gastronomie": "/en/for/restaurants",
     "/fuer/ferienvermietung": "/en/for/holiday-rentals", "/fuer/handwerk": "/en/for/trades",
     "/fuer/praxen-studios": "/en/for/practices-studios", "/so-funktioniert-es": "/en/how-it-works",
@@ -22,23 +22,28 @@ UI = {
     "cta": "Get in touch", "cta_href": "/en/contact",
     "thanks_url": "/en/thank-you",
     "nav": [
-        {"text": "Packages", "href": "/en/packages"},
-        {"text": "Industries", "href": "/en/for/restaurants", "children": [
+        {"text": "Business app", "href": "/en/business-app"},
+        {"text": "Pricing", "href": "/en/business-app#pricing"},
+        {"text": "Websites", "href": "/en/packages", "children": [
+            {"text": "Website packages", "sub": "Website, Google, Instagram – from €549", "href": "/en/packages"},
+            {"text": "Website, no enquiries", "sub": "Rebuilding existing websites", "href": "/en/website-no-enquiries"},
+            {"text": "Visibility check", "sub": "Analysis for €60", "href": "/en/visibility-check"},
             {"text": "Restaurants", "sub": "Restaurants, cafés, bars", "href": "/en/for/restaurants"},
             {"text": "Holiday rentals", "sub": "Holiday homes & apartments", "href": "/en/for/holiday-rentals"},
             {"text": "Trades", "sub": "Craft and trade businesses", "href": "/en/for/trades"},
             {"text": "Practices & studios", "sub": "Physio, beauty, wellness", "href": "/en/for/practices-studios"},
         ]},
-        {"text": "Website, no enquiries", "href": "/en/website-no-enquiries"},
         {"text": "How it works", "href": "/en/how-it-works"},
         {"text": "About", "href": "/en/about"},
     ],
     "footer": {
-        "claim": "Websites that get seen.",
-        "text": "Website, Google Business Profile, Instagram and Facebook – fully set up, at a fixed price, from one person.",
+        "claim": "Plan. Clock in. Report. Done.",
+        "text": "The business app for small teams – rota, time tracking, reports. Plus website, Google profile and Instagram, fully set up, from one person.",
         "pages_label": "Pages",
         "pages": [
-            {"text": "Packages & prices", "href": "/en/packages"},
+            {"text": "Business app", "href": "/en/business-app"},
+            {"text": "App pricing", "href": "/en/business-app#pricing"},
+            {"text": "Website packages & prices", "href": "/en/packages"},
             {"text": "Website, no enquiries", "href": "/en/website-no-enquiries"},
             {"text": "Visibility check", "href": "/en/visibility-check"},
             {"text": "How it works", "href": "/en/how-it-works"},
@@ -71,8 +76,8 @@ UI = {
         "text": "Tell me in two or three sentences what you have in mind. I reply within 24 hours on working days – by email, no sales call.",
         "direct": "Prefer to email directly?",
         "name": "Name", "email": "Email", "industry": "Industry", "interest": "Interest",
-        "industries": ["Restaurant / café / bar", "Holiday rental", "Trades", "Practice & studio", "Other"],
-        "interests": ["New website", "Improve existing website", "Visibility check", "Not sure yet"],
+        "industries": ["Cleaning & property care", "Trades", "Garden & pool", "Restaurant / café / bar", "Holiday rental", "Practice & studio", "Other"],
+        "interests": ["Business app", "Business app + website", "New website", "Improve existing website", "Visibility check", "Not sure yet"],
         "link": "Link to website or Instagram (optional)", "message": "Message",
         "business": "Business", "link_site": "Link to your website", "link_google": "Link to Google profile", "link_insta": "Link to Instagram",
         "check_msg": "What bothers you most (optional)",
@@ -122,6 +127,7 @@ def industry_page(slug, title, desc, hero, blocks, industry, faq, name):
         "blocks": [hero] + blocks + [{"type": "faq", "items": faq}, {**FORM, "industry": industry}],
     }
 
+from app_en import HOME_BLOCKS as APP_HOME_BLOCKS, HOME_FAQ as APP_HOME_FAQ, APP_PAGE, APP_TARIF
 PAGES = []
 
 HOME_FAQ = [
@@ -131,50 +137,19 @@ HOME_FAQ = [
     {"q": "Why not just build it myself with AI or Wix?", "a": "You can. Then you have a page – but no Google profile set up, no Instagram, no texts that sell, and no one to ask. The website is the easy part. The paths that lead to it are the work."},
     {"q": "Can I call you?", "a": "I work by email – that way everything stays on record and I can focus on your project. You get a reply within 24 hours on working days."},
 ]
+HOME_FAQ = APP_HOME_FAQ
 PAGES.append({
-    "url": "/en/", "title": "Get a website built from €549 – KWiDi",
-    "description": "Website, Google profile and Instagram from one person – fully set up, at a fixed price. For restaurants, holiday rentals, trades and studios.",
+    "url": "/en/", "title": "Business app for small teams: rota, time tracking, reports – KWiDi",
+    "description": "Plan, clock in, report – from the app. Rota, time tracking and work reports for cleaning, property care, trades and gardening. Set up from €249, then €39/month. Plus websites that get seen.",
     "template": "page",
     "jsonld": [
-        {"@context": "https://schema.org", "@type": "Organization", "name": "KWiDi", "url": "https://kriswidi.com", "logo": "https://kriswidi.com/assets/img/logo-stacked.svg", "email": "kristinaswiderski@outlook.com"},
+        {"@context": "https://schema.org", "@type": "Organization", "name": "KWiDi", "url": "https://kriswidi.com", "logo": "https://kriswidi.com/assets/img/logo-stacked.svg", "email": "kristinaswiderski@outlook.com", "sameAs": []},
+        {"@context": "https://schema.org", "@type": "WebSite", "name": "KWiDi", "url": "https://kriswidi.com", "inLanguage": ["de", "en"]},
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in HOME_FAQ]},
     ],
-    "blocks": [
-        {"type": "hero", "label": "Website · Google · Instagram · Facebook", "h1": "Websites that get seen.",
-         "text": "Your website, your Google profile and your Instagram – fully set up, at a fixed price, by one person. For restaurants, holiday rentals, trades and studios.",
-         "primary": {"text": "Get in touch – no obligation", "href": "#anfrage"}, "secondary": {"text": "See packages from €549", "href": "/en/packages"},
-         "kiwi": {"hint_desktop": "Hover over the seeds", "hint_mobile": "Tap a seed", "aria": "The KWiDi packages as seeds of a kiwi", "items": [
-             {"name": "Visibility check", "price": "€60", "href": "/en/visibility-check"},
-             {"name": "Website", "price": "from €549", "href": "/en/packages#website"},
-             {"name": "Website + Google", "price": "€729", "href": "/en/packages#website-google"},
-             {"name": "Website + Google + Social", "price": "€1,490", "href": "/en/packages#website-google-social"},
-             {"name": "All-round", "price": "€2,990", "href": "/en/packages#rundum"},
-             {"name": "Custom", "price": "on request", "href": "/en/packages#individuell"}]}},
-        {"type": "text", "bg": "sand", "h2": "Most websites bring nothing. Not because they look bad.",
-         "paragraphs": ["But because they just exist. Nobody finds them, nobody understands in five seconds what you offer, and nobody knows how to reach you. A website on its own is like a restaurant without a sign on the street.", "That's why I don't just build the website. I build the paths that lead guests to you."]},
-        {"type": "chain", "h2": "How clicks turn into guests.", "items": CHAIN, "link": {"text": "Explained in detail", "href": "/en/how-it-works"}},
-        {"type": "cards", "bg": "sand", "h2": "For businesses that need someone to walk in tomorrow.", "cols": 4, "items": [
-            {"title": "Restaurants", "text": "Restaurants, cafés, bars. Menu, reservations, Google Maps, Instagram. So Tuesday doesn't stay empty.", "href": "/en/for/restaurants"},
-            {"title": "Holiday rentals", "text": "Holiday home or apartment, at home or abroad. Multilingual, with direct enquiry.", "href": "/en/for/holiday-rentals"},
-            {"title": "Trades", "text": "Whoever googles you should hire you. Google profile, reviews, enquiry in one tap.", "href": "/en/for/trades"},
-            {"title": "Practices & studios", "text": "Physio, beauty, massage, naturopathy, vets. A professional presence, appointment requests included.", "href": "/en/for/practices-studios"},
-        ]},
-        {"type": "packages", "h2": "Four packages. All prices are right here.", "intro": "Pay once, the website is yours. No subscription, no lock-in. All prices excl. VAT.", "items": PACKAGES_SHORT, "link": {"text": "All details and what's not included", "href": "/en/packages"}},
-        {"type": "highlight", "h2": "Already have a website – and it brings nothing?", "paragraphs": ["You're not alone. I look at your website, Google profile and Instagram and tell you in plain language what's wrong. The visibility check costs €60 – and is fully credited against any package."],
-         "buttons": [{"text": "To the visibility check", "href": "/en/visibility-check"}, {"text": "More about the rebuild", "href": "/en/website-no-enquiries"}], "big": "€60"},
-        {"type": "split", "image_left": True, "image": "about-hands", "alt": "Hands over a notebook, espresso cup, shadow of a palm leaf", "h2": "One person. One price. No queue.",
-         "paragraphs": ["Behind KWiDi is me, Kristina. I grew an Instagram profile to 6,000 followers in four months – organically, without ads – and run the online presence of a premium service business on Mallorca, where I live. I know what matters because I do it myself every day."],
-         "bullets": [{"title": "Everything from one person.", "text": "Website, Google, Instagram, Facebook – one contact, one price."}, {"title": "You provide almost nothing.", "text": "Texts and images come from me. You approve."}, {"title": "You understand what you're buying.", "text": "I explain how it turns into guests – no jargon."}, {"title": "Not alone afterwards.", "text": "Changes later? Same person."}],
-         "link": {"text": "More about me", "href": "/en/about"}},
-        {"type": "cards", "bg": "sand", "h2": "What I've built myself.", "cols": 3, "items": [
-            {"big": "6,000", "title": "followers in 4 months", "text": "An Instagram profile, grown organically. No ads, no giveaways – with posts people actually wanted to see."},
-            {"big": "1", "title": "premium service business, fully online", "text": "Website, Google profile and social media of a finca management and rental business – built and run continuously."},
-            {"big": "You?", "title": "Your business here", "text": "The first client projects get a special price – and a place on this page.", "href": "#anfrage", "link_text": "Get in touch"},
-        ]},
-        {"type": "faq", "items": HOME_FAQ},
-        FORM,
-    ],
+    "blocks": [dict(b, items=PACKAGES_SHORT) if b.get("type") == "packages" else b for b in APP_HOME_BLOCKS] + [FORM],
 })
+PAGES.append(dict(APP_PAGE, blocks=APP_PAGE["blocks"] + [dict(FORM, interest="Business app")]))
 
 PAKETE_FAQ = [
     {"q": "Are prices net or gross?", "a": "Net, plus statutory VAT. Business customers in Germany, Austria and Switzerland are invoiced under the reverse-charge procedure – your accountant knows it."},
@@ -184,13 +159,14 @@ PAKETE_FAQ = [
     {"q": "How long does it take?", "a": "That depends on how quickly you give feedback. Usually a website is online in two to three weeks."},
 ]
 PAGES.append({
-    "url": "/en/packages", "title": "Website packages & prices – fixed price from €549 | KWiDi",
+    "url": "/en/packages", "title": "Prices: business app from €39/month, website from €549 | KWiDi",
     "description": "Four packages, all prices net and public: website from €549, with Google profile €729, with Instagram & Facebook €1,490, all-round €2,990. No subscription.",
     "template": "page",
     "jsonld": [{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in PAKETE_FAQ]}],
     "blocks": [
-        {"type": "hero", "short": True, "label": "Prices", "h1": "Packages and prices – pay once, it's yours.", "text": "No subscriptions, no hidden costs, no surprise after twelve months. All prices excl. VAT."},
-        {"type": "packages", "bg": "sand", "h2": "The four packages at a glance", "items": PACKAGES_FULL,
+        {"type": "hero", "short": True, "label": "Prices", "h1": "Packages and prices – it's all here.", "text": "The business app monthly, cancel any time. Websites one-off – they're yours. No hidden costs. All prices net of VAT."},
+        dict(APP_TARIF, bg="ivory", h2="The business app: set up once, use monthly.", intro="Rota, time tracking, reports, jobs, expenses – for your whole team. Cancel monthly, all prices net.", link={"text": "All features of the business app", "href": "/en/business-app"}),
+        {"type": "packages", "bg": "sand", "h2": "Websites: four packages, pay once, it's yours.", "items": PACKAGES_FULL,
          "extra": {"id": "individuell", "name": "Individual", "price": "on request", "text": "More pages, other languages, longer support, a support concept just for you. Tell me what you need.", "button": "Enquire"}},
         {"type": "list", "rows": True, "h2": "Also bookable", "items": [
             {"title": "Ads", "text": "Image ads on Instagram and Facebook – price on request. You pay the ad budget directly to Meta; it's not included."},
