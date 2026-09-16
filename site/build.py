@@ -70,7 +70,8 @@ def image(name, alt=""):
             return f'<img src="/assets/img/{name}.{ext}" alt="{alt}" loading="lazy" decoding="async">'
     return f'<img src="/assets/img/placeholders/{name}.svg" alt="{alt}" loading="lazy" decoding="async">'
 
-env.globals.update(image=image, logo_horizontal=logo_h, logo_mono_ivory=logo_mono_ivory, signet=signet)
+from kiwi import kiwi_svg
+env.globals.update(image=image, kiwi_svg=kiwi_svg, logo_horizontal=logo_h, logo_mono_ivory=logo_mono_ivory, signet=signet)
 
 def alt_urls(url):
     if url in URL_MAP: return {"de": url, "en": URL_MAP[url]}
