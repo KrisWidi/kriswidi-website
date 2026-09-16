@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
+{% if page.noindex %}<meta name="robots" content="noindex, follow">{% endif %}
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<link rel="alternate" hreflang="de" href="{{ site.url }}{{ page.alt.de }}">
+<link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.alt.en }}">
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.alt.de }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KWiDi">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ site.url }}/assets/img/og-{{ lang }}.png">
+<meta property="og:locale" content="{{ 'de_DE' if lang == 'de' else 'en_GB' }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon-32.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/Fraunces-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Jost-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/main.css">
+<script src="/assets/js/config.js"></script>
+{% for ld in page.jsonld %}<script type="application/ld+json">{{ ld | tojson }}</script>
+{% endfor %}
+</head>
+<body{% if page.lead %} data-lead="1"{% endif %}>
+<a class="sr-only" href="#main">{{ ui.skip }}</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ ui.home_url }}" aria-label="KWiDi – {{ ui.home }}">{{ logo_horizontal | safe }}</a>
+    <nav class="nav" aria-label="{{ ui.nav_label }}">
+      {% for item in ui.nav %}
+        {% if item.children %}
+        <div class="has-sub">
+          <a href="{{ item.href }}" aria-haspopup="true"{% if page.url.startswith(item.href) %} aria-current="page"{% endif %}>{{ item.text }}</a>
+          <div class="sub">
+            {% for c in item.children %}<a href="{{ c.href }}">{{ c.text }}<span>{{ c.sub }}</span></a>{% endfor %}
+          </div>
+        </div>
+        {% else %}
+        <a href="{{ item.href }}"{% if page.url == item.href %} aria-current="page"{% endif %}>{{ item.text }}</a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+    <div class="header-right">
+      <div class="lang" aria-label="{{ ui.lang_label }}">
+        <a href="{{ page.alt.de }}" hreflang="de"{% if lang=='de' %} class="active" aria-current="true"{% endif %}>DE</a> |
+        <a href="{{ page.alt.en }}" hreflang="en"{% if lang=='en' %} class="active" aria-current="true"{% endif %}>EN</a>
+      </div>
+      <a class="btn btn-primary" href="{{ ui.cta_href }}">{{ ui.cta }}</a>
+      <button class="burger" aria-label="{{ ui.menu }}" aria-expanded="false" aria-controls="mobile-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="{{ ui.menu }}">
+  <button class="close" aria-label="{{ ui.close }}"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <nav>
+    {% for item in ui.nav %}
+      <a href="{{ item.href }}">{{ item.text }}</a>
+      {% if item.children %}<div class="group">{% for c in item.children %}<a href="{{ c.href }}">{{ c.text }}</a>{% endfor %}</div>{% endif %}
+    {% endfor %}
+    <a href="{{ ui.cta_href }}">{{ ui.cta }}</a>
+  </nav>
+  <div class="meta">
+    <div class="lang"><a href="{{ page.alt.de }}"{% if lang=='de' %} class="active"{% endif %}>DE</a> | <a href="{{ page.alt.en }}"{% if lang=='en' %} class="active"{% endif %}>EN</a></div>
+    <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+  </div>
+</div>
+
+<main id="main">
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div class="col">
+        <div class="brand">{{ logo_mono_ivory | safe }}</div>
+        <p style="margin-top:12px"><b>{{ ui.footer.claim }}</b></p>
+        <p class="muted" style="color:#AD9C8A">{{ ui.footer.text }}</p>
+      </div>
+      <div class="col">
+        <span class="label">{{ ui.footer.pages_label }}</span>
+        {% for l in ui.footer.pages %}<a href="{{ l.href }}">{{ l.text }}</a>{% endfor %}
+      </div>
+      <div class="col">
+        <span class="label">{{ ui.footer.industries_label }}</span>
+        {% for l in ui.footer.industries %}<a href="{{ l.href }}">{{ l.text }}</a>{% endfor %}
+      </div>
+      <div class="col">
+        <span class="label">{{ ui.footer.contact_label }}</span>
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <span style="color:#AD9C8A">{{ ui.footer.reply }}</span>
+        <div class="actions" style="margin-top:8px;gap:12px">
+          <a href="{{ site.instagram }}" rel="me noopener" target="_blank">Instagram</a>
+          <a href="{{ site.facebook }}" rel="me noopener" target="_blank">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="legal">
+      <a href="{{ ui.footer.imprint_href }}">{{ ui.footer.imprint }}</a>
+      <a href="{{ ui.footer.privacy_href }}">{{ ui.footer.privacy }}</a>
+      <a href="#" data-open-consent>{{ ui.footer.cookies }}</a>
+      <span>© {{ year }} KWiDi · {{ ui.footer.vat }}</span>
+    </div>
+  </div>
+</footer>
+
+<a class="sticky-cta btn btn-primary" href="{{ ui.cta_href }}">{{ ui.cta }}</a>
+
+<div class="consent" id="consent" role="dialog" aria-live="polite" aria-label="{{ ui.consent.title }}">
+  <div class="wrap">
+    <div class="text">
+      <b>{{ ui.consent.title }}</b>
+      <span>{{ ui.consent.text }} <a href="{{ ui.footer.privacy_href }}">{{ ui.consent.link }}</a></span>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" data-consent="all">{{ ui.consent.all }}</button>
+      <button class="btn btn-secondary" data-consent="none">{{ ui.consent.none }}</button>
+      <button class="btn btn-secondary" data-consent="settings">{{ ui.consent.settings }}</button>
+    </div>
+    <div class="options">
+      <label class="check"><input type="checkbox" checked disabled> {{ ui.consent.necessary }}</label>
+      <label class="check"><input type="checkbox" id="c-analytics"> {{ ui.consent.analytics }}</label>
+      <label class="check"><input type="checkbox" id="c-marketing"> {{ ui.consent.marketing }}</label>
+      <button class="btn btn-secondary" data-consent="save">{{ ui.consent.save }}</button>
+    </div>
+  </div>
+</div>
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

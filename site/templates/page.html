@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+{% block content %}
+{% for b in page.blocks %}
+{% set bg = b.bg or 'ivory' %}
+
+{% if b.type == 'hero' %}
+<section class="hero grain {% if b.short %}short{% endif %}">
+  <div class="wrap grid">
+    <div class="copy">
+      {% if b.label %}<span class="label">{{ b.label }}</span>{% endif %}
+      <h1>{{ b.h1 }}</h1>
+      {% if b.text %}<p class="lede measure">{{ b.text }}</p>{% endif %}
+      {% if b.primary or b.secondary %}
+      <div class="actions">
+        {% if b.primary %}<a class="btn btn-primary" href="{{ b.primary.href }}">{{ b.primary.text }}</a>{% endif %}
+        {% if b.secondary %}<a class="link" href="{{ b.secondary.href }}">{{ b.secondary.text }}</a>{% endif %}
+      </div>
+      {% endif %}
+    </div>
+    {% if b.image %}<div class="media">{{ image(b.image, b.alt) | safe }}</div>{% endif %}
+  </div>
+</section>
+
+{% elif b.type == 'text' %}
+<section class="section bg-{{ bg }}{% if b.hairline %} hairline{% endif %}">
+  <div class="wrap reveal">
+    <div class="stack {% if b.center %}center{% endif %}" style="max-width:64ch">
+      {% if b.label %}<span class="label">{{ b.label }}</span>{% endif %}
+      <h2>{{ b.h2 }}</h2>
+      {% for p in b.paragraphs %}<p{% if loop.first and b.lede %} class="lede"{% endif %}>{{ p | safe }}</p>{% endfor %}
+      {% if b.link %}<p><a class="link" href="{{ b.link.href }}">{{ b.link.text }}</a></p>{% endif %}
+    </div>
+  </div>
+</section>
+
+{% elif b.type == 'chain' %}
+<section class="section bg-{{ bg }}">
+  <div class="wrap reveal">
+    <div class="section-head"><h2>{{ b.h2 }}</h2>{% if b.intro %}<p class="lede">{{ b.intro }}</p>{% endif %}</div>
+    <div class="chain">
+      {% for s in b['items'] %}
+      <div class="step">
+        <span class="n num">{{ loop.index }}</span>
+        <h3>{{ s.title }}</h3>
+        {% if s.sub %}<span class="sub">{{ s.sub }}</span>{% endif %}
+        <p>{{ s.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% if b.link %}<p class="mt-4"><a class="link" href="{{ b.link.href }}">{{ b.link.text }}</a></p>{% endif %}
+  </div>
+</section>
+
+{% elif b.type == 'cards' %}
+<section class="section bg-{{ bg }}">
+  <div class="wrap reveal">
+    <div class="section-head"><h2>{{ b.h2 }}</h2>{% if b.intro %}<p class="lede">{{ b.intro }}</p>{% endif %}</div>
+    <div class="cards c{{ b.cols or 4 }}">
+      {% for c in b['items'] %}
+      {% if c.href %}<a class="card" href="{{ c.href }}">{% else %}<div class="card">{% endif %}
+        {% if c.label %}<span class="label">{{ c.label }}</span>{% endif %}
+        {% if c.big %}<span class="big num">{{ c.big }}</span>{% endif %}
+        {% if c.title %}<h3>{{ c.title }}</h3>{% endif %}
+        <p>{{ c.text }}</p>
+        {% if c.href %}<span class="link">{{ c.link_text or ui.more }}</span>{% endif %}
+      {% if c.href %}</a>{% else %}</div>{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% elif b.type == 'packages' %}
+<section class="section bg-{{ bg }}" id="{{ b.id or 'pakete' }}">
+  <div class="wrap reveal">
+    <div class="section-head"><h2>{{ b.h2 }}</h2>{% if b.intro %}<p class="lede">{{ b.intro }}</p>{% endif %}</div>
+    <div class="packages">
+      {% for p in b['items'] %}
+      <div class="pkg {% if p.highlight %}highlight{% endif %}">
+        <span class="tag">{{ p.tag or '' }}</span>
+        <h3>{{ p.name }}</h3>
+        <span class="price num">{{ p.price }}<small>{{ p.price_note }}</small></span>
+        <div>
+          {% if p.for %}<p class="for">{{ p.for }}</p>{% endif %}
+          {% if p.features %}<ul style="margin-top:12px">{% for f in p.features %}<li>{{ f }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+        {% if p.button %}<a class="btn {% if p.highlight %}btn-primary{% else %}btn-secondary{% endif %}" href="{{ p.href or '#anfrage' }}" data-package="{{ p.name }}">{{ p.button }}</a>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% if b.extra %}<div class="pkg-extra"><div><b>{{ b.extra.name }}</b> — {{ b.extra.price }}<br><span class="muted">{{ b.extra.text }}</span></div><a class="btn btn-secondary" href="{{ b.extra.href or '#anfrage' }}">{{ b.extra.button }}</a></div>{% endif %}
+    {% if b.link %}<p class="mt-4"><a class="link" href="{{ b.link.href }}">{{ b.link.text }}</a></p>{% endif %}
+  </div>
+</section>
+
+{% elif b.type == 'highlight' %}
+<section class="section bg-{{ b.bg or 'kiwi' }}">
+  <div class="wrap reveal">
+    <div class="highlight">
+      <div class="copy">
+        {% if b.label %}<span class="label">{{ b.label }}</span>{% endif %}
+        <h2>{{ b.h2 }}</h2>
+        {% for p in b.paragraphs %}<p>{{ p | safe }}</p>{% endfor %}
+        {% if b.buttons %}<div class="actions">{% for x in b.buttons %}<a class="btn {{ 'btn-primary' if loop.first else 'btn-secondary' }}" href="{{ x.href }}">{{ x.text }}</a>{% endfor %}</div>{% endif %}
+        {% if b.link %}<p><a class="link" href="{{ b.link.href }}">{{ b.link.text }}</a></p>{% endif %}
+      </div>
+      {% if b.big %}<div class="big num">{{ b.big }}</div>{% endif %}
+    </div>
+  </div>
+</section>
+
+{% elif b.type == 'split' %}
+<section class="section bg-{{ bg }}">
+  <div class="wrap reveal">
+    <div class="split {% if b.image_left %}media-left{% endif %}">
+      <div class="copy">
+        {% if b.label %}<span class="label">{{ b.label }}</span>{% endif %}
+        <h2>{{ b.h2 }}</h2>
+        {% for p in b.paragraphs %}<p>{{ p | safe }}</p>{% endfor %}
+        {% if b.bullets %}<ul>{% for x in b.bullets %}<li>{% if x.title %}<b>{{ x.title }}</b> {{ x.text }}{% else %}{{ x }}{% endif %}</li>{% endfor %}</ul>{% endif %}
+        {% if b.quote %}<p class="quote">{{ b.quote }}</p>{% endif %}
+        {% if b.link %}<p><a class="link" href="{{ b.link.href }}">{{ b.link.text }}</a></p>{% endif %}
+      </div>
+      {% if b.image %}<div class="media">{{ image(b.image, b.alt) | safe }}</div>{% endif %}
+    </div>
+  </div>
+</section>
+
+{% elif b.type == 'reasons' %}
+<section class="section bg-{{ bg }}">
+  <div class="wrap reveal">
+    <div class="section-head"><h2>{{ b.h2 }}</h2></div>
+    <ol class="reasons">{% for r in b['items'] %}<li><div><b>{{ r.title }}</b>{{ r.text }}</div></li>{% endfor %}</ol>
+  </div>
+</section>
+
+{% elif b.type == 'steps' %}
+<section class="section bg-{{ bg }}">
+  <div class="wrap reveal">
+    <div class="section-head"><h2>{{ b.h2 }}</h2>{% if b.intro %}<p class="lede">{{ b.intro }}</p>{% endif %}</div>
+    <ol class="steps {% if b.inline %}inline{% endif %}">{% for s in b['items'] %}<li><div>{% if s.title %}<b>{{ s.title }}</b>{% endif %}{{ s.text }}</div></li>{% endfor %}</ol>
+    {% if b.note %}<p class="mt-3 muted">{{ b.note }}</p>{% endif %}
+  </div>
+</section>
+
+{% elif b.type == 'list' %}
+<section class="section bg-{{ bg }}">
+  <div class="wrap reveal">
+    <div class="section-head"><h2>{{ b.h2 }}</h2>{% if b.intro %}<p>{{ b.intro }}</p>{% endif %}</div>
+    {% if b.rows %}
+    <ul class="rows">{% for r in b['items'] %}<li><div><b>{{ r.title }}</b>{% if r.text %}<br><span>{{ r.text | safe }}</span>{% endif %}</div>{% if r.href %}<a class="link" href="{{ r.href }}">{{ r.link_text or ui.more }}</a>{% endif %}</li>{% endfor %}</ul>
+    {% else %}
+    <ul class="plain measure">{% for r in b['items'] %}<li>{{ r | safe }}</li>{% endfor %}</ul>
+    {% endif %}
+  </div>
+</section>
+
+{% elif b.type == 'table' %}
+<section class="section bg-{{ bg }}">
+  <div class="wrap reveal">
+    <div class="section-head"><h2>{{ b.h2 }}</h2>{% if b.intro %}<p>{{ b.intro }}</p>{% endif %}</div>
+    <div class="table-wrap"><table>
+      <thead><tr>{% for h in b.head %}<th scope="col">{{ h }}</th>{% endfor %}</tr></thead>
+      <tbody>{% for r in b.rows %}<tr>{% for c in r %}{% if loop.first %}<th scope="row">{{ c }}</th>{% elif loop.last %}<td class="win">{{ c }}</td>{% else %}<td>{{ c }}</td>{% endif %}{% endfor %}</tr>{% endfor %}</tbody>
+    </table></div>
+    {% if b.note %}<p class="table-note">{{ b.note }}</p>{% endif %}
+  </div>
+</section>
+
+{% elif b.type == 'faq' %}
+<section class="section bg-{{ bg }}" id="faq">
+  <div class="wrap reveal">
+    <div class="section-head"><h2>{{ b.h2 or ui.faq }}</h2></div>
+    <div class="faq">
+      {% for f in b['items'] %}<details{% if loop.first %} open{% endif %}><summary>{{ f.q }}</summary><div class="a"><p>{{ f.a | safe }}</p></div></details>{% endfor %}
+    </div>
+  </div>
+</section>
+
+{% elif b.type == 'form' %}
+<section class="section form-section bg-{{ b.bg or 'sand' }}" id="anfrage">
+  <div class="wrap">
+    <div class="grid">
+      <div class="copy">
+        {% if b.as_h1 %}<h1>{{ b.h2 }}</h1>{% else %}<h2>{{ b.h2 or ui.form.h2 }}</h2>{% endif %}
+        <p>{{ b.text or ui.form.text }}</p>
+        <p class="muted">{{ ui.form.direct }} <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        {% if b.aside %}{% for p in b.aside %}<p>{{ p | safe }}</p>{% endfor %}{% endif %}
+      </div>
+      {% set f = ui.form %}
+      <form class="form" method="post" action="{{ site.form_endpoint }}" data-thanks="{{ ui.thanks_url }}" novalidate>
+        <input type="hidden" name="_subject" value="{{ 'Sichtbarkeits-Check' if b.variant == 'check' else 'Anfrage' }} – kriswidi.com">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="language" value="{{ lang }}">
+        <input type="hidden" name="page" value="{{ page.url }}">
+        <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website_url" tabindex="-1" autocomplete="off"></label></div>
+        <div class="row">
+          <div class="field"><label for="f-name">{{ f.name }}*</label><input id="f-name" name="name" type="text" required autocomplete="name"></div>
+          <div class="field"><label for="f-email">{{ f.email }}*</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+        </div>
+        {% if b.variant == 'check' %}
+          <div class="field"><label for="f-business">{{ f.business }}*</label><input id="f-business" name="business" type="text" required autocomplete="organization"></div>
+          <div class="field"><label for="f-site">{{ f.link_site }}</label><input id="f-site" name="website" type="url" placeholder="https://"></div>
+          <div class="row">
+            <div class="field"><label for="f-google">{{ f.link_google }}</label><input id="f-google" name="google_profile" type="url" placeholder="https://"></div>
+            <div class="field"><label for="f-insta">{{ f.link_insta }}</label><input id="f-insta" name="instagram" type="url" placeholder="https://"></div>
+          </div>
+          <div class="field"><label for="f-msg">{{ f.check_msg }}</label><textarea id="f-msg" name="message"></textarea></div>
+        {% else %}
+          <div class="row">
+            <div class="field"><label for="f-industry">{{ f.industry }}</label>
+              <select id="f-industry" name="industry">{% for o in f.industries %}<option value="{{ o }}"{% if o == b.industry %} selected{% endif %}>{{ o }}</option>{% endfor %}</select></div>
+            <div class="field"><label for="f-interest">{{ f.interest }}</label>
+              <select id="f-interest" name="interest">{% for o in f.interests %}<option value="{{ o }}"{% if o == b.interest %} selected{% endif %}>{{ o }}</option>{% endfor %}</select></div>
+          </div>
+          <div class="field"><label for="f-link">{{ f.link }}</label><input id="f-link" name="link" type="url" placeholder="https://"></div>
+          <div class="field"><label for="f-msg">{{ f.message }}*</label><textarea id="f-msg" name="message" required></textarea></div>
+        {% endif %}
+        <label class="check"><input type="checkbox" name="privacy" required> <span>{{ f.privacy_pre }} <a href="{{ ui.footer.privacy_href }}">{{ f.privacy_link }}</a> {{ f.privacy_post }}*</span></label>
+        <div class="form-msg" role="status"></div>
+        <button class="btn btn-primary" type="submit">{{ b.button or f.submit }}</button>
+        {% if b.note %}<p class="muted" style="font-size:14px">{{ b.note }}</p>{% endif %}
+      </form>
+    </div>
+  </div>
+</section>
+
+{% elif b.type == 'legal' %}
+<section class="section">
+  <div class="wrap legal-page">
+    <h1>{{ b.h1 }}</h1>
+    {{ b.html | safe }}
+  </div>
+</section>
+
+{% elif b.type == 'simple' %}
+<section class="section">
+  <div class="wrap center stack" style="max-width:56ch;padding-block:var(--s8)">
+    <h1>{{ b.h1 }}</h1>
+    {% for p in b.paragraphs %}<p class="lede">{{ p | safe }}</p>{% endfor %}
+    <div class="actions" style="justify-content:center;margin-top:16px">
+      {% for x in b.buttons %}<a class="btn {{ 'btn-primary' if loop.first else 'btn-secondary' }}" href="{{ x.href }}">{{ x.text }}</a>{% endfor %}
+    </div>
+  </div>
+</section>
+
+{% elif b.type == 'signet' %}
+<div class="wrap"><div class="signet-end">{{ signet | safe }}</div></div>
+{% endif %}
+{% endfor %}
+{% endblock %}
