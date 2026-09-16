@@ -170,4 +170,30 @@
       a.addEventListener('click', function (e) { e.preventDefault(); var s = read() || {}; banner.querySelector('#c-analytics').checked = !!s.analytics; banner.querySelector('#c-marketing').checked = !!s.marketing; banner.classList.add('show', 'expanded'); });
     });
   }
+
+  /* ---------- Tarif-Rechner (Betriebs-App) ---------- */
+  document.querySelectorAll('[data-calc]').forEach(function (box) {
+    var base = parseFloat(box.getAttribute('data-base')) || 0, per = parseFloat(box.getAttribute('data-per')) || 0;
+    var setup = parseFloat(box.getAttribute('data-setup')) || 0;
+    var range = box.querySelector('input[type=range]'), out = box.querySelector('#calc-n-out'), month = box.querySelector('#calc-month'), line = box.querySelector('#calc-line');
+    var tpl = line ? line.textContent : '';
+    function fmt (n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €'; }
+    function upd () {
+      var n = parseInt(range.value, 10) || 1, m = base + per * (n - 1);
+      if (out) out.textContent = n;
+      if (month) month.textContent = fmt(m);
+      if (line) line.textContent = tpl.replace('{n}', n).replace('{m}', fmt(m)).replace('{y}', fmt(m * 12)).replace('{s}', fmt(setup)).replace('{extra}', n - 1);
+      var btn = box.querySelector('[data-package]'); if (btn) btn.setAttribute('data-package', (btn.getAttribute('data-package') || '').split(' (')[0] + ' (' + n + ')');
+    }
+    if (range) { range.addEventListener('input', upd); upd(); }
+  });
+
+  /* ---------- Paket-Buttons füllen das Formular vor ---------- */
+  document.querySelectorAll('a[data-package]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var pkg = a.getAttribute('data-package') || '', sel = document.getElementById('f-interest'), msg = document.getElementById('f-msg');
+      if (sel) { var opts = Array.prototype.slice.call(sel.options), hit = opts.filter(function (o) { return pkg.indexOf(o.value.split(' (')[0]) === 0 || o.value.indexOf(pkg.split(' (')[0]) === 0; })[0]; if (hit) sel.value = hit.value; }
+      if (msg && !msg.value) msg.value = pkg + ': ';
+    });
+  });
 })();
