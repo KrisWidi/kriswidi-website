@@ -23,14 +23,14 @@
         <div class="kiwi-box">
         {{ k.svg | safe }}
         {% for it in b.kiwi['items'] %}{% set sd = k.seeds[loop.index0] %}
-        <a class="seed side-{{ sd.side }}" href="{{ it.href }}" style="left:{{ sd.x }}%;top:{{ sd.y }}%;--rot:{{ sd.rot }}deg;--i:{{ loop.index0 }}"><i aria-hidden="true"></i><span><b>{{ it.name }}</b>{{ it.price }}</span></a>
+        <a class="seed side-{{ sd.side }}{% if it.primary %} primary{% endif %}" href="{{ it.href }}" style="left:{{ sd.x }}%;top:{{ sd.y }}%;--rot:{{ sd.rot }}deg;--i:{{ loop.index0 }}"><i aria-hidden="true"></i><span><b>{{ it.name }}</b>{{ it.price }}</span></a>
         {% endfor %}
         </div>
         <div class="kiwi-live" aria-live="polite"></div>
         <figcaption class="kiwi-hint"><span class="d">{{ b.kiwi.hint_desktop }}</span><span class="m">{{ b.kiwi.hint_mobile }}</span></figcaption>
       </figure>
     </div>
-    {% elif b.image %}<div class="media">{{ image(b.image, b.alt) | safe }}</div>{% endif %}
+    {% elif b.image %}<div class="media{% if b.frame %} frame{% endif %}">{{ image(b.image, b.alt) | safe }}</div>{% endif %}
   </div>
 </section>
 
@@ -65,7 +65,7 @@
 </section>
 
 {% elif b.type == 'cards' %}
-<section class="section bg-{{ bg }}">
+<section class="section bg-{{ bg }}"{% if b.id %} id="{{ b.id }}"{% endif %}>
   <div class="wrap reveal">
     <div class="section-head"><h2>{{ b.h2 }}</h2>{% if b.intro %}<p class="lede">{{ b.intro }}</p>{% endif %}</div>
     <div class="cards c{{ b.cols or 4 }}">
@@ -122,7 +122,7 @@
 </section>
 
 {% elif b.type == 'split' %}
-<section class="section bg-{{ bg }}">
+<section class="section bg-{{ bg }}"{% if b.id %} id="{{ b.id }}"{% endif %}>
   <div class="wrap reveal">
     <div class="split {% if b.image_left %}media-left{% endif %}">
       <div class="copy">
@@ -133,13 +133,57 @@
         {% if b.quote %}<p class="quote">{{ b.quote }}</p>{% endif %}
         {% if b.link %}<p><a class="link" href="{{ b.link.href }}">{{ b.link.text }}</a></p>{% endif %}
       </div>
-      {% if b.image %}<div class="media">{{ image(b.image, b.alt) | safe }}</div>{% endif %}
+      {% if b.image %}<div class="media{% if b.frame %} frame{% endif %}">{{ image(b.image, b.alt) | safe }}</div>{% endif %}
+    </div>
+  </div>
+</section>
+
+{% elif b.type == 'apptarif' %}
+<section class="section bg-{{ bg }}" id="{{ b.id or 'preise' }}">
+  <div class="wrap reveal">
+    <div class="section-head"><h2>{{ b.h2 }}</h2>{% if b.intro %}<p class="lede">{{ b.intro }}</p>{% endif %}</div>
+    <div class="tarif">
+      <div class="tarif-card">
+        <span class="tag">{{ b.setup.tag }}</span>
+        <span class="price num">{{ b.setup.price }}<small>{{ b.setup.note }}</small></span>
+        <ul>{% for f in b.setup.features %}<li>{{ f }}</li>{% endfor %}</ul>
+      </div>
+      <div class="tarif-card highlight">
+        <span class="tag">{{ b.monthly.tag }}</span>
+        <span class="price num">{{ b.monthly.price }}<small>{{ b.monthly.note }}</small></span>
+        <ul>{% for f in b.monthly.features %}<li>{{ f }}</li>{% endfor %}</ul>
+      </div>
+      <div class="tarif-calc" data-calc data-base="{{ b.calc.base }}" data-per="{{ b.calc.per }}" data-setup="{{ b.calc.setup }}">
+        <span class="tag">{{ b.calc.tag }}</span>
+        <label for="calc-n">{{ b.calc.label }} <output for="calc-n" id="calc-n-out" class="num">1</output></label>
+        <input type="range" id="calc-n" min="1" max="{{ b.calc.max or 25 }}" value="1" step="1">
+        <div class="calc-out"><span class="num" id="calc-month">{{ b.calc.base }} €</span><small>{{ b.calc.month_label }}</small></div>
+        <p class="muted small" id="calc-line">{{ b.calc.line }}</p>
+        <a class="btn btn-primary" href="{{ b.calc.href or '#anfrage' }}" data-package="{{ b.calc.package }}">{{ b.calc.button }}</a>
+      </div>
+    </div>
+    {% if b.notes %}<ul class="tarif-notes">{% for n in b.notes %}<li>{{ n | safe }}</li>{% endfor %}</ul>{% endif %}
+    {% if b.link %}<p class="mt-3"><a class="link" href="{{ b.link.href }}">{{ b.link.text }}</a></p>{% endif %}
+  </div>
+</section>
+
+{% elif b.type == 'gallery' %}
+<section class="section bg-{{ bg }}"{% if b.id %} id="{{ b.id }}"{% endif %}>
+  <div class="wrap reveal">
+    <div class="section-head"><h2>{{ b.h2 }}</h2>{% if b.intro %}<p class="lede">{{ b.intro }}</p>{% endif %}</div>
+    <div class="gallery c{{ b.cols or 3 }}">
+      {% for g in b['items'] %}
+      <figure class="shot">
+        <div class="media frame">{{ image(g.image, g.alt) | safe }}</div>
+        <figcaption>{% if g.title %}<b>{{ g.title }}</b>{% endif %}{{ g.text }}</figcaption>
+      </figure>
+      {% endfor %}
     </div>
   </div>
 </section>
 
 {% elif b.type == 'reasons' %}
-<section class="section bg-{{ bg }}">
+<section class="section bg-{{ bg }}"{% if b.id %} id="{{ b.id }}"{% endif %}>
   <div class="wrap reveal">
     <div class="section-head"><h2>{{ b.h2 }}</h2></div>
     <ol class="reasons">{% for r in b['items'] %}<li><div><b>{{ r.title }}</b>{{ r.text }}</div></li>{% endfor %}</ol>
@@ -147,7 +191,7 @@
 </section>
 
 {% elif b.type == 'steps' %}
-<section class="section bg-{{ bg }}">
+<section class="section bg-{{ bg }}"{% if b.id %} id="{{ b.id }}"{% endif %}>
   <div class="wrap reveal">
     <div class="section-head"><h2>{{ b.h2 }}</h2>{% if b.intro %}<p class="lede">{{ b.intro }}</p>{% endif %}</div>
     <ol class="steps {% if b.inline %}inline{% endif %}">{% for s in b['items'] %}<li><div>{% if s.title %}<b>{{ s.title }}</b>{% endif %}{{ s.text }}</div></li>{% endfor %}</ol>
@@ -156,7 +200,7 @@
 </section>
 
 {% elif b.type == 'list' %}
-<section class="section bg-{{ bg }}">
+<section class="section bg-{{ bg }}"{% if b.id %} id="{{ b.id }}"{% endif %}>
   <div class="wrap reveal">
     <div class="section-head"><h2>{{ b.h2 }}</h2>{% if b.intro %}<p>{{ b.intro }}</p>{% endif %}</div>
     {% if b.rows %}
