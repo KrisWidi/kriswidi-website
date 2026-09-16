@@ -92,16 +92,16 @@ PACKAGES_SHORT = [
 ]
 
 PACKAGES_FULL = [
-    {"name": "Website", "price": "from €549", "price_note": "one-off · excl. VAT", "for": "For everyone who wants to be found and understood.",
+    {"id": "website", "name": "Website", "price": "from €549", "price_note": "one-off · excl. VAT", "for": "For everyone who wants to be found and understood.",
      "features": ["4 pages, individually designed – no template", "Texts and images by me", "Legal notice and privacy policy included", "Works on phone, tablet and desktop", "Contact form", "Domain and hosting set up", "New or a rebuild of your existing website"],
      "button": "Enquire about Website"},
-    {"name": "Website + Google", "price": "€729", "price_note": "one-off · excl. VAT", "for": "For everyone who wants to appear on the map.",
+    {"id": "website-google", "name": "Website + Google", "price": "€729", "price_note": "one-off · excl. VAT", "for": "For everyone who wants to appear on the map.",
      "features": ["Everything from “Website”", "Google Business Profile fully set up: categories, opening hours, services, photos, description", "Linked to your website"],
      "button": "Enquire about Website + Google"},
-    {"name": "Website + Google + Social", "price": "€1,490", "price_note": "one-off · excl. VAT", "tag": "My recommendation", "highlight": True, "for": "For everyone who wants to stay in mind.",
+    {"id": "website-google-social", "name": "Website + Google + Social", "price": "€1,490", "price_note": "one-off · excl. VAT", "tag": "My recommendation", "highlight": True, "for": "For everyone who wants to stay in mind.",
      "features": ["Everything from “Website + Google”", "Instagram profile set up: bio, highlights, profile picture, links", "Facebook page set up", "6 first posts each, so the profiles are not empty"],
      "button": "Enquire about this package"},
-    {"name": "All-round", "price": "€2,990", "price_note": "one-off · excl. VAT", "for": "For everyone who wants to hand it all over.",
+    {"id": "rundum", "name": "All-round", "price": "€2,990", "price_note": "one-off · excl. VAT", "for": "For everyone who wants to hand it all over.",
      "features": ["Everything from “Website + Google + Social”", "3 months of support: posts, Google profile upkeep, website changes – we tailor the scope to your business"],
      "button": "Enquire about All-round"},
 ]
@@ -143,7 +143,13 @@ PAGES.append({
         {"type": "hero", "label": "Website · Google · Instagram · Facebook", "h1": "Websites that get seen.",
          "text": "Your website, your Google profile and your Instagram – fully set up, at a fixed price, by one person. For restaurants, holiday rentals, trades and studios.",
          "primary": {"text": "Get in touch – no obligation", "href": "#anfrage"}, "secondary": {"text": "See packages from €549", "href": "/en/packages"},
-         "image": "hero-kristina", "alt": "Kristina, founder of KWiDi, on a terrace"},
+         "kiwi": {"hint_desktop": "Hover over the seeds", "hint_mobile": "Tap a seed", "aria": "The KWiDi packages as seeds of a kiwi", "items": [
+             {"name": "Visibility check", "price": "€60", "href": "/en/visibility-check"},
+             {"name": "Website", "price": "from €549", "href": "/en/packages#website"},
+             {"name": "Website + Google", "price": "€729", "href": "/en/packages#website-google"},
+             {"name": "Website + Google + Social", "price": "€1,490", "href": "/en/packages#website-google-social"},
+             {"name": "All-round", "price": "€2,990", "href": "/en/packages#rundum"},
+             {"name": "Custom", "price": "on request", "href": "/en/packages#individuell"}]}},
         {"type": "text", "bg": "sand", "h2": "Most websites bring nothing. Not because they look bad.",
          "paragraphs": ["But because they just exist. Nobody finds them, nobody understands in five seconds what you offer, and nobody knows how to reach you. A website on its own is like a restaurant without a sign on the street.", "That's why I don't just build the website. I build the paths that lead guests to you."]},
         {"type": "chain", "h2": "How clicks turn into guests.", "items": CHAIN, "link": {"text": "Explained in detail", "href": "/en/how-it-works"}},
@@ -185,7 +191,7 @@ PAGES.append({
     "blocks": [
         {"type": "hero", "short": True, "label": "Prices", "h1": "Packages and prices – pay once, it's yours.", "text": "No subscriptions, no hidden costs, no surprise after twelve months. All prices excl. VAT."},
         {"type": "packages", "bg": "sand", "h2": "The four packages at a glance", "items": PACKAGES_FULL,
-         "extra": {"name": "Individual", "price": "on request", "text": "More pages, other languages, longer support, a support concept just for you. Tell me what you need.", "button": "Enquire"}},
+         "extra": {"id": "individuell", "name": "Individual", "price": "on request", "text": "More pages, other languages, longer support, a support concept just for you. Tell me what you need.", "button": "Enquire"}},
         {"type": "list", "rows": True, "h2": "Also bookable", "items": [
             {"title": "Ads", "text": "Image ads on Instagram and Facebook – price on request. You pay the ad budget directly to Meta; it's not included."},
             {"title": "Visibility check", "text": "€60, fully credited when you book a package.", "href": "/en/visibility-check"},

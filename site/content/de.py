@@ -82,16 +82,16 @@ PACKAGES_SHORT = [
 ]
 
 PACKAGES_FULL = [
-    {"name": "Website", "price": "ab 549 €", "price_note": "einmalig · zzgl. MwSt.", "for": "Für alle, die gefunden und verstanden werden wollen.",
+    {"id": "website", "name": "Website", "price": "ab 549 €", "price_note": "einmalig · zzgl. MwSt.", "for": "Für alle, die gefunden und verstanden werden wollen.",
      "features": ["4 Seiten, individuell gestaltet – kein Template", "Texte und Bilder von mir", "Impressum und Datenschutzerklärung inklusive", "Für Handy, Tablet und Desktop", "Kontaktformular", "Domain und Hosting eingerichtet", "Neu oder Umbau deiner bestehenden Website"],
      "button": "Website anfragen"},
-    {"name": "Website + Google", "price": "729 €", "price_note": "einmalig · zzgl. MwSt.", "for": "Für alle, die auf der Karte auftauchen wollen.",
+    {"id": "website-google", "name": "Website + Google", "price": "729 €", "price_note": "einmalig · zzgl. MwSt.", "for": "Für alle, die auf der Karte auftauchen wollen.",
      "features": ["Alles aus „Website“", "Google-Unternehmensprofil vollständig eingerichtet: Kategorien, Öffnungszeiten, Leistungen, Fotos, Beschreibung", "Verknüpfung mit deiner Website"],
      "button": "Website + Google anfragen"},
-    {"name": "Website + Google + Social", "price": "1.490 €", "price_note": "einmalig · zzgl. MwSt.", "tag": "Meine Empfehlung", "highlight": True, "for": "Für alle, die im Kopf bleiben wollen.",
+    {"id": "website-google-social", "name": "Website + Google + Social", "price": "1.490 €", "price_note": "einmalig · zzgl. MwSt.", "tag": "Meine Empfehlung", "highlight": True, "for": "Für alle, die im Kopf bleiben wollen.",
      "features": ["Alles aus „Website + Google“", "Instagram-Profil eingerichtet: Bio, Highlights, Profilbild, Verlinkung", "Facebook-Seite eingerichtet", "Je 6 erste Beiträge, damit die Profile nicht leer sind"],
      "button": "Paket anfragen"},
-    {"name": "Rundum", "price": "2.990 €", "price_note": "einmalig · zzgl. MwSt.", "for": "Für alle, die es komplett abgeben wollen.",
+    {"id": "rundum", "name": "Rundum", "price": "2.990 €", "price_note": "einmalig · zzgl. MwSt.", "for": "Für alle, die es komplett abgeben wollen.",
      "features": ["Alles aus „Website + Google + Social“", "3 Monate Betreuung: Beiträge, Pflege des Google-Profils, Änderungen an der Website – den Umfang stimmen wir auf deinen Betrieb ab"],
      "button": "Rundum anfragen"},
 ]
@@ -136,7 +136,13 @@ PAGES.append({
         {"type": "hero", "label": "Website · Google · Instagram · Facebook", "h1": "Websites, die gesehen werden.",
          "text": "Deine Website, dein Google-Profil und dein Instagram – fertig eingerichtet, zum Festpreis, von einer Person. Für Gastronomie, Ferienvermietung, Handwerk und Studios.",
          "primary": {"text": "Unverbindlich anfragen", "href": "#anfrage"}, "secondary": {"text": "Pakete ab 549 € ansehen", "href": "/pakete"},
-         "image": "hero-kristina", "alt": "Kristina, Gründerin von KWiDi, auf einer Terrasse"},
+         "kiwi": {"hint_desktop": "Fahre über die Kerne", "hint_mobile": "Tippe auf einen Kern", "aria": "Die KWiDi-Pakete als Kerne einer Kiwi", "items": [
+             {"name": "Sichtbarkeits-Check", "price": "60 €", "href": "/sichtbarkeits-check"},
+             {"name": "Website", "price": "ab 549 €", "href": "/pakete#website"},
+             {"name": "Website + Google", "price": "729 €", "href": "/pakete#website-google"},
+             {"name": "Website + Google + Social", "price": "1.490 €", "href": "/pakete#website-google-social"},
+             {"name": "Rundum", "price": "2.990 €", "href": "/pakete#rundum"},
+             {"name": "Individuell", "price": "auf Anfrage", "href": "/pakete#individuell"}]}},
         {"type": "text", "bg": "sand", "h2": "Die meisten Websites bringen nichts. Nicht, weil sie schlecht aussehen.",
          "paragraphs": ["Sondern weil sie nur da sind. Niemand findet sie, niemand versteht in fünf Sekunden, was du anbietest, und niemand weiß, wie er dich erreicht. Eine Website allein ist wie ein Restaurant ohne Schild an der Straße.", "Deshalb baue ich nicht nur die Website. Ich baue die Wege, über die Gäste zu dir finden."]},
         {"type": "chain", "h2": "So werden aus Klicks Gäste.", "items": CHAIN, "link": {"text": "Ausführlich erklärt", "href": "/so-funktioniert-es"}},
@@ -183,7 +189,7 @@ PAGES.append({
     "blocks": [
         {"type": "hero", "short": True, "label": "Preise", "h1": "Pakete und Preise – einmal zahlen, gehört dir.", "text": "Keine Abos, keine versteckten Kosten, keine Überraschung nach zwölf Monaten. Alle Preise netto zzgl. MwSt."},
         {"type": "packages", "bg": "sand", "h2": "Die vier Pakete im Überblick", "items": PACKAGES_FULL,
-         "extra": {"name": "Individuell", "price": "auf Anfrage", "text": "Mehr Seiten, andere Sprachen, längere Betreuung, ein Betreuungskonzept nur für dich. Schreib mir, was du brauchst.", "button": "Anfragen"}},
+         "extra": {"id": "individuell", "name": "Individuell", "price": "auf Anfrage", "text": "Mehr Seiten, andere Sprachen, längere Betreuung, ein Betreuungskonzept nur für dich. Schreib mir, was du brauchst.", "button": "Anfragen"}},
         {"type": "list", "rows": True, "h2": "Zusätzlich buchbar", "items": [
             {"title": "Werbeanzeigen", "text": "Bild-Anzeigen auf Instagram und Facebook – Preis auf Anfrage. Das Werbebudget zahlst du direkt an Meta, es ist nicht im Preis enthalten."},
             {"title": "Sichtbarkeits-Check", "text": "60 €, bei Buchung eines Pakets voll angerechnet.", "href": "/sichtbarkeits-check"},
