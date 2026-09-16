@@ -17,7 +17,20 @@
       </div>
       {% endif %}
     </div>
-    {% if b.image %}<div class="media">{{ image(b.image, b.alt) | safe }}</div>{% endif %}
+    {% if b.kiwi %}{% set k = kiwi_svg(b.kiwi['items'] | length) %}
+    <div class="media kiwi-media">
+      <figure class="kiwi" role="group" aria-label="{{ b.kiwi.aria }}">
+        <div class="kiwi-box">
+        {{ k.svg | safe }}
+        {% for it in b.kiwi['items'] %}{% set sd = k.seeds[loop.index0] %}
+        <a class="seed side-{{ sd.side }}" href="{{ it.href }}" style="left:{{ sd.x }}%;top:{{ sd.y }}%;--rot:{{ sd.rot }}deg;--i:{{ loop.index0 }}"><i aria-hidden="true"></i><span><b>{{ it.name }}</b>{{ it.price }}</span></a>
+        {% endfor %}
+        </div>
+        <div class="kiwi-live" aria-live="polite"></div>
+        <figcaption class="kiwi-hint"><span class="d">{{ b.kiwi.hint_desktop }}</span><span class="m">{{ b.kiwi.hint_mobile }}</span></figcaption>
+      </figure>
+    </div>
+    {% elif b.image %}<div class="media">{{ image(b.image, b.alt) | safe }}</div>{% endif %}
   </div>
 </section>
 
@@ -75,7 +88,7 @@
     <div class="section-head"><h2>{{ b.h2 }}</h2>{% if b.intro %}<p class="lede">{{ b.intro }}</p>{% endif %}</div>
     <div class="packages">
       {% for p in b['items'] %}
-      <div class="pkg {% if p.highlight %}highlight{% endif %}">
+      <div class="pkg {% if p.highlight %}highlight{% endif %}"{% if p.id %} id="{{ p.id }}"{% endif %}>
         <span class="tag">{{ p.tag or '' }}</span>
         <h3>{{ p.name }}</h3>
         <span class="price num">{{ p.price }}<small>{{ p.price_note }}</small></span>
@@ -87,7 +100,7 @@
       </div>
       {% endfor %}
     </div>
-    {% if b.extra %}<div class="pkg-extra"><div><b>{{ b.extra.name }}</b> — {{ b.extra.price }}<br><span class="muted">{{ b.extra.text }}</span></div><a class="btn btn-secondary" href="{{ b.extra.href or '#anfrage' }}">{{ b.extra.button }}</a></div>{% endif %}
+    {% if b.extra %}<div class="pkg-extra"{% if b.extra.id %} id="{{ b.extra.id }}"{% endif %}><div><b>{{ b.extra.name }}</b> — {{ b.extra.price }}<br><span class="muted">{{ b.extra.text }}</span></div><a class="btn btn-secondary" href="{{ b.extra.href or '#anfrage' }}">{{ b.extra.button }}</a></div>{% endif %}
     {% if b.link %}<p class="mt-4"><a class="link" href="{{ b.link.href }}">{{ b.link.text }}</a></p>{% endif %}
   </div>
 </section>
@@ -116,7 +129,7 @@
         {% if b.label %}<span class="label">{{ b.label }}</span>{% endif %}
         <h2>{{ b.h2 }}</h2>
         {% for p in b.paragraphs %}<p>{{ p | safe }}</p>{% endfor %}
-        {% if b.bullets %}<ul>{% for x in b.bullets %}<li>{% if x.title %}<b>{{ x.title }}</b> {{ x.text }}{% else %}{{ x }}{% endif %}</li>{% endfor %}</ul>{% endif %}
+        {% if b.bullets %}<ul>{% for x in b.bullets %}<li>{% if x is mapping %}<b>{{ x.title }}</b> {{ x.text }}{% else %}{{ x }}{% endif %}</li>{% endfor %}</ul>{% endif %}
         {% if b.quote %}<p class="quote">{{ b.quote }}</p>{% endif %}
         {% if b.link %}<p><a class="link" href="{{ b.link.href }}">{{ b.link.text }}</a></p>{% endif %}
       </div>
