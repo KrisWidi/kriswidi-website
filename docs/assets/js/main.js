@@ -32,6 +32,46 @@
   }
 
   /* ---------- Reveal on scroll ---------- */
+  // Interaktive Kiwi: Desktop = Hover-Labels (CSS). Touch/Mobil = Kerne leuchten beim ersten Sichtbarwerden
+  // nacheinander auf, der Paketname erscheint darunter; Tippen zeigt das Paket, zweites Tippen folgt dem Link.
+  var kiwi = document.querySelector('.kiwi');
+  if (kiwi) {
+    var seeds = Array.prototype.slice.call(kiwi.querySelectorAll('.seed'));
+    var live = kiwi.querySelector('.kiwi-live');
+    var mobile = window.matchMedia('(hover: none), (max-width: 820px)').matches;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var current = -1, timer = null;
+    var show = function (i) {
+      seeds.forEach(function (a, k) { a.classList.toggle('on', k === i); });
+      if (live && i >= 0) {
+        var b = seeds[i].querySelector('b');
+        live.innerHTML = '<b>' + (b ? b.textContent : '') + '</b> <span class="p">· ' + seeds[i].querySelector('span').lastChild.textContent + '</span>';
+        live.classList.add('show');
+      }
+      current = i;
+    };
+    var sequence = function () {
+      if (!mobile) return;
+      if (reduce) { show(0); return; }
+      var i = 0;
+      timer = setInterval(function () { show(i); i++; if (i >= seeds.length) { clearInterval(timer); timer = null; } }, 900);
+    };
+    if ('IntersectionObserver' in window) {
+      var ko = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { kiwi.classList.add('play'); sequence(); ko.disconnect(); } }); }, { threshold: 0.5 });
+      ko.observe(kiwi);
+    } else { kiwi.classList.add('play'); sequence(); }
+    seeds.forEach(function (a, k) {
+      a.addEventListener('click', function (ev) {
+        kiwi.classList.add('touched');
+        if (mobile && current !== k) {
+          ev.preventDefault();
+          if (timer) { clearInterval(timer); timer = null; }
+          show(k);
+        }
+      });
+    });
+  }
+
   var reveals = document.querySelectorAll('.reveal');
   if (reveals.length && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     var ro = new IntersectionObserver(function (entries) {
