@@ -240,7 +240,6 @@
       <div class="copy">
         {% if b.as_h1 %}<h1>{{ b.h2 }}</h1>{% else %}<h2>{{ b.h2 or ui.form.h2 }}</h2>{% endif %}
         <p>{{ b.text or ui.form.text }}</p>
-        <p class="muted">{{ ui.form.direct }} <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
         {% if b.aside %}{% for p in b.aside %}<p>{{ p | safe }}</p>{% endfor %}{% endif %}
       </div>
       {% set f = ui.form %}
