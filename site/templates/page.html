@@ -30,7 +30,7 @@
         <figcaption class="kiwi-hint"><span class="d">{{ b.kiwi.hint_desktop }}</span><span class="m">{{ b.kiwi.hint_mobile }}</span></figcaption>
       </figure>
     </div>
-    {% elif b.image %}<div class="media{% if b.frame %} frame{% endif %}">{{ image(b.image, b.alt) | safe }}</div>{% endif %}
+    {% elif b.image %}<div class="media{% if b.frame %} frame{% endif %}{% if b.portrait %} portrait{% endif %}">{{ image(b.image, b.alt) | safe }}</div>{% endif %}
   </div>
 </section>
 
@@ -133,7 +133,7 @@
         {% if b.quote %}<p class="quote">{{ b.quote }}</p>{% endif %}
         {% if b.link %}<p><a class="link" href="{{ b.link.href }}">{{ b.link.text }}</a></p>{% endif %}
       </div>
-      {% if b.image %}<div class="media{% if b.frame %} frame{% endif %}">{{ image(b.image, b.alt) | safe }}</div>{% endif %}
+      {% if b.image %}<div class="media{% if b.frame %} frame{% endif %}{% if b.portrait %} portrait{% endif %}">{{ image(b.image, b.alt) | safe }}</div>{% endif %}
     </div>
   </div>
 </section>
