@@ -351,7 +351,7 @@ PAGES.append({
     "description": "Behind KWiDi is one person: Kristina. 6,000 followers in 4 months built herself, online presences run for businesses. No team, no ticket system.",
     "template": "page", "jsonld": [],
     "blocks": [
-        {"type": "hero", "label": "About", "h1": "Hi, I'm Kristina.", "text": "Behind KWiDi is not an agency, but me. I build websites and online presences for small businesses – and explain it so you understand what you're buying.", "image": "hero-kristina", "alt": "Kristina, founder of KWiDi"},
+        {"type": "hero", "label": "About", "h1": "Hi, I'm Kristina.", "text": "Behind KWiDi is not an agency, but me. I build websites and online presences for small businesses – and explain it so you understand what you're buying.", "image": "hero-kristina", "portrait": True, "alt": "Kristina, founder of KWiDi"},
         {"type": "split", "image": "about-hands", "alt": "Hands over a notebook, espresso cup", "h2": "Why KWiDi.", "paragraphs": ["I've seen too often how small businesses spend money on a website and then nothing happens. Not because the website was bad. But because nobody told them that the website is only one part – and Google and Instagram are the other two. KWiDi is my attempt to do it differently: everything from one person, at a price you can afford, with an explanation you understand."], "quote": "The name? Kristina Swiderski and kiwi. Fresh, honest, uncomplicated."},
         {"type": "cards", "bg": "sand", "h2": "What I've built myself.", "cols": 3, "items": [
             {"big": "6,000", "title": "followers in four months", "text": "An Instagram profile, organic, no ads. With posts about Mallorca, where I live."},

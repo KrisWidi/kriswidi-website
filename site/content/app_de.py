@@ -91,7 +91,7 @@ HOME_BLOCKS = [
     ]},
     {"type": "packages", "h2": "Außerdem: deine Website, dein Google-Profil, dein Instagram.", "intro": "Die App organisiert deinen Betrieb nach innen. Damit von außen Kunden kommen, gibt es die Website-Pakete – einmal zahlen, gehört dir. Wer beides bucht, spart die App-Einrichtung.", "items": None,
      "link": {"text": "Alle Website-Pakete und Preise", "href": "/pakete"}},
-    {"type": "split", "image_left": True, "image": "hero-kristina", "alt": "Kristina, Gründerin von KWiDi", "h2": "Eine Person. Ein Preis. Keine Warteschleife.",
+    {"type": "split", "image_left": True, "image": "hero-kristina", "portrait": True, "alt": "Kristina, Gründerin von KWiDi", "h2": "Eine Person. Ein Preis. Keine Warteschleife.",
      "paragraphs": ["Hinter KWiDi stehe ich, Kristina. Ich führe den Online-Auftritt eines Betriebs für Finca-Betreuung und Vermietung – und ich weiß, wie viel Zeit zwischen Plan, Stempelzettel und Kundenbericht verloren geht. Deshalb bekommst du bei mir beides: die App, die den Alltag organisiert, und die Website, die Kunden bringt."],
      "bullets": [{"title": "Alles aus einer Hand.", "text": "App, Website, Google, Instagram – ein Ansprechpartner."}, {"title": "Du lieferst fast nichts.", "text": "Eine Liste, ein Video-Call. Den Rest mache ich."}, {"title": "Klartext.", "text": "Feste Preise, keine Verkaufsgespräche, Antwort in 24 Stunden."}],
      "link": {"text": "Mehr über mich", "href": "/ueber-mich"}},

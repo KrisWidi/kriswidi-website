@@ -90,7 +90,7 @@ HOME_BLOCKS = [
     ]},
     {"type": "packages", "h2": "Also: your website, your Google profile, your Instagram.", "intro": "The app organises your business on the inside. To bring customers in from the outside, there are the website packages – pay once, it's yours. Book both and the app setup is free.", "items": None,
      "link": {"text": "All website packages and prices", "href": "/en/packages"}},
-    {"type": "split", "image_left": True, "image": "hero-kristina", "alt": "Kristina, founder of KWiDi", "h2": "One person. One price. No hold music.",
+    {"type": "split", "image_left": True, "image": "hero-kristina", "portrait": True, "alt": "Kristina, founder of KWiDi", "h2": "One person. One price. No hold music.",
      "paragraphs": ["Behind KWiDi is me, Kristina. I run the online presence of a villa-care and rental business – and I know how much time gets lost between rota, timesheet and customer report. That is why you get both from me: the app that organises the day-to-day, and the website that brings customers."],
      "bullets": [{"title": "Everything from one person.", "text": "App, website, Google, Instagram – one contact."}, {"title": "You deliver almost nothing.", "text": "One list, one video call. I do the rest."}, {"title": "Plain language.", "text": "Fixed prices, no sales calls, reply within 24 hours."}],
      "link": {"text": "More about me", "href": "/en/about"}},
