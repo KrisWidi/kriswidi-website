@@ -51,7 +51,7 @@ WEB_KIWI = {
 }
 
 HOME_FAQ = [
-    {"q": "What exactly is the business app?", "a": "A web app for small service businesses: rota, time tracking, work reports with photos, jobs, leave requests, expenses and customer management – all in one place, from your phone. I set it up for you; you and your team use it from day one."},
+    {"q": "What exactly is the business app?", "a": "A web app for service businesses with a team: rota, time tracking, work reports with photos, jobs, leave requests, expenses and customer management – all in one place, from your phone. I set it up for you; you and your team use it from day one."},
     {"q": "What does the app cost?", "a": "Standard: €249 one-off for the setup. Custom: €4,695 one-off – then the app is cut exactly to your business. In both cases €39 per month afterwards with one employee included, each additional employee €9 per month. Cancel monthly, all prices net."},
     {"q": "What is the difference between Standard and Custom?", "a": "Standard is the ready-made app with all modules, set up with your data. Custom means we build the app around your business – only the modules you need, custom fields and workflows, your design. Everything that works differently in your day-to-day than in the standard is reflected."},
     {"q": "Does my team have to install anything?", "a": "No. The app runs in the browser – on any phone, tablet or PC. Your employee gets a link and their login, nothing else. Everyone uses the app in their own language: you plan in English, your employee reads their day in Russian, Spanish or Arabic."},
@@ -62,7 +62,7 @@ HOME_FAQ = [
 ]
 
 HOME_BLOCKS = [
-    {"type": "hero", "label": "The business app for small business owners",
+    {"type": "hero", "label": "The business app for business owners with a team",
      "h1": "Plan. Clock in. Report. Done.",
      "text": "Everything your team and your customers need – from the app. Rota, time tracking, reports, jobs, expenses and journeys in one app. Ready-made or tailored completely to your business.",
      "primary": {"text": "Request the app", "href": "#anfrage"}, "secondary": {"text": "See prices", "href": "#pricing"},
@@ -122,7 +122,7 @@ APP_FAQ = [
 ]
 
 APP_PAGE = {
-    "url": APP_URL, "title": "Business app for small teams – rota, time tracking, reports | KWiDi",
+    "url": APP_URL, "title": "Business app for service businesses – rota, time tracking, reports | KWiDi",
     "description": "Rota, time tracking, work reports with photos, jobs and expenses in one app. Set up for your business: €249 one-off, then €39/month. Cancel monthly.",
     "template": "page",
     "jsonld": [

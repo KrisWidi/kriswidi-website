@@ -28,7 +28,7 @@ UI = {
     ],
     "footer": {
         "claim": "Planen. Stempeln. Berichten. Fertig.",
-        "text": "Die Betriebs-App für Kleinbetriebe – Dienstplan, Zeiterfassung, Berichte. Dazu Website, Google-Profil und Instagram, fertig eingerichtet, aus einer Hand.",
+        "text": "Die Betriebs-App für Unternehmer mit Team – Dienstplan, Zeiterfassung, Berichte. Dazu Website, Google-Profil und Instagram, fertig eingerichtet, aus einer Hand.",
         "pages_label": "Seiten",
         "pages": [
             {"text": "Betriebs-App", "href": "/betriebs-app"},
@@ -131,7 +131,7 @@ HOME_FAQ = [
 ]
 HOME_FAQ = APP_HOME_FAQ
 PAGES.append({
-    "url": "/", "title": "Betriebs-App für Kleinbetriebe: Dienstplan, Zeiterfassung, Berichte – KWiDi",
+    "url": "/", "title": "Betriebs-App für Dienstleistungsbetriebe: Dienstplan, Zeiterfassung, Berichte – KWiDi",
     "description": "Planen, stempeln, berichten – von der App aus. Dienstplan, Zeiterfassung und Arbeitsberichte für Reinigung, Hausbetreuung, Handwerk und Garten. Eingerichtet ab 249 €, dann 39 €/Monat. Dazu Websites, die gesehen werden.",
     "template": "page",
     "jsonld": [

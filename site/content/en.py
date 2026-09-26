@@ -38,7 +38,7 @@ UI = {
     ],
     "footer": {
         "claim": "Plan. Clock in. Report. Done.",
-        "text": "The business app for small teams – rota, time tracking, reports. Plus website, Google profile and Instagram, fully set up, from one person.",
+        "text": "The business app for business owners with a team – rota, time tracking, reports. Plus website, Google profile and Instagram, fully set up, from one person.",
         "pages_label": "Pages",
         "pages": [
             {"text": "Business app", "href": "/en/business-app"},
@@ -139,7 +139,7 @@ HOME_FAQ = [
 ]
 HOME_FAQ = APP_HOME_FAQ
 PAGES.append({
-    "url": "/en/", "title": "Business app for small teams: rota, time tracking, reports – KWiDi",
+    "url": "/en/", "title": "Business app for service businesses: rota, time tracking, reports – KWiDi",
     "description": "Plan, clock in, report – from the app. Rota, time tracking and work reports for cleaning, property care, trades and gardening. Set up from €249, then €39/month. Plus websites that get seen.",
     "template": "page",
     "jsonld": [

@@ -52,7 +52,7 @@ WEB_KIWI = {
 }
 
 HOME_FAQ = [
-    {"q": "Was ist die Betriebs-App genau?", "a": "Eine Web-App für kleine Dienstleistungsbetriebe: Dienstplan, Zeiterfassung, Arbeitsberichte mit Fotos, Aufträge, Urlaubsanträge, Kosten und Kundenverwaltung – alles an einem Ort, vom Handy aus. Ich richte sie für dich ein, du und dein Team nutzt sie ab dem ersten Tag."},
+    {"q": "Was ist die Betriebs-App genau?", "a": "Eine Web-App für Dienstleistungsbetriebe mit Team: Dienstplan, Zeiterfassung, Arbeitsberichte mit Fotos, Aufträge, Urlaubsanträge, Kosten und Kundenverwaltung – alles an einem Ort, vom Handy aus. Ich richte sie für dich ein, du und dein Team nutzt sie ab dem ersten Tag."},
     {"q": "Was kostet die App?", "a": "Standard: 249 € einmalig für die Einrichtung. Individuell: 4.695 € einmalig – dann ist die App exakt auf deinen Betrieb zugeschnitten. In beiden Fällen danach 39 € im Monat mit einem Mitarbeiter inklusive, jeder weitere Mitarbeiter 9 € im Monat. Monatlich kündbar, alle Preise netto."},
     {"q": "Was ist der Unterschied zwischen Standard und Individuell?", "a": "Standard ist die fertige App mit allen Modulen, eingerichtet mit deinen Daten. Individuell heißt: Wir bauen die App um deinen Betrieb herum – nur die Module, die du brauchst, eigene Felder und Abläufe, dein Design. Alles, was in deinem Alltag anders läuft als beim Standard, wird so abgebildet."},
     {"q": "Muss mein Team etwas installieren?", "a": "Nein. Die App läuft im Browser – auf jedem Handy, Tablet oder PC. Dein Mitarbeiter bekommt einen Link und seine Zugangsdaten, mehr nicht. Jeder nutzt die App in seiner Sprache: Du planst auf Deutsch, dein Mitarbeiter liest seinen Tag auf Russisch, Spanisch oder Arabisch."},
@@ -63,7 +63,7 @@ HOME_FAQ = [
 ]
 
 HOME_BLOCKS = [
-    {"type": "hero", "label": "Die Betriebs-App für Kleinunternehmer",
+    {"type": "hero", "label": "Die Betriebs-App für Unternehmer mit Team",
      "h1": "Planen. Stempeln. Berichten. Fertig.",
      "text": "Alles, was dein Team und deine Kunden brauchen – von der App aus. Dienstplan, Zeiterfassung, Berichte, Aufträge, Kosten und Fahrten in einer App. Fertig eingerichtet oder komplett auf deinen Betrieb zugeschnitten.",
      "primary": {"text": "App unverbindlich anfragen", "href": "#anfrage"}, "secondary": {"text": "Preise ansehen", "href": "#preise"},
@@ -123,7 +123,7 @@ APP_FAQ = [
 ]
 
 APP_PAGE = {
-    "url": APP_URL, "title": "Betriebs-App für Kleinbetriebe – Dienstplan, Zeiterfassung, Berichte | KWiDi",
+    "url": APP_URL, "title": "Betriebs-App für Dienstleistungsbetriebe – Dienstplan, Zeiterfassung, Berichte | KWiDi",
     "description": "Dienstplan, Zeiterfassung, Arbeitsberichte mit Fotos, Aufträge und Kosten in einer App. Eingerichtet für deinen Betrieb: 249 € einmalig, dann 39 €/Monat. Monatlich kündbar.",
     "template": "page",
     "jsonld": [
