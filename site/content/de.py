@@ -441,7 +441,7 @@ DATENSCHUTZ_HTML = """
 <h2>7. Meta-Pixel (Facebook, Instagram)</h2>
 <p>Mit deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) nutzen wir das Meta-Pixel der Meta Platforms Ireland Limited, Merrion Road, Dublin 4, Irland, um die Wirksamkeit unserer Anzeigen zu messen und Zielgruppen zu bilden. Dabei können Daten an Meta Platforms Inc. in die USA übermittelt werden; Meta ist nach dem EU-US Data Privacy Framework zertifiziert. Wir sind mit Meta gemeinsam verantwortlich im Sinne von Art. 26 DSGVO für die Erhebung und Übermittlung; die weitere Verarbeitung verantwortet Meta. Informationen: <a href="https://www.facebook.com/privacy/policy" rel="noopener" target="_blank">facebook.com/privacy/policy</a>.</p>
 <h2>8. Schriftarten</h2>
-<p>Die verwendeten Schriften (Manrope, Inter) werden lokal auf unserem Server bereitgestellt. Es findet keine Verbindung zu Servern von Google statt.</p>
+<p>Die verwendeten Schriften (Cormorant Garamond, Outfit) werden lokal auf unserem Server bereitgestellt. Es findet keine Verbindung zu Servern von Google statt.</p>
 <h2>9. Links zu Instagram und Facebook</h2>
 <p>Unsere Website enthält Links zu unseren Profilen bei Instagram und Facebook. Es werden keine Inhalte dieser Plattformen eingebettet; erst beim Klick auf einen Link verlässt du unsere Website und es gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</p>
 <h2>10. Deine Rechte</h2>
