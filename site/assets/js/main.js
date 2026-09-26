@@ -34,8 +34,7 @@
   /* ---------- Reveal on scroll ---------- */
   // Interaktive Kiwi: Desktop = Hover-Labels (CSS). Touch/Mobil = Kerne leuchten beim ersten Sichtbarwerden
   // nacheinander auf, der Paketname erscheint darunter; Tippen zeigt das Paket, zweites Tippen folgt dem Link.
-  var kiwi = document.querySelector('.kiwi');
-  if (kiwi) {
+  document.querySelectorAll('.kiwi').forEach(function (kiwi) {
     var seeds = Array.prototype.slice.call(kiwi.querySelectorAll('.seed'));
     var live = kiwi.querySelector('.kiwi-live');
     var mobile = window.matchMedia('(hover: none), (max-width: 820px)').matches;
@@ -70,7 +69,7 @@
         }
       });
     });
-  }
+  });
 
   var reveals = document.querySelectorAll('.reveal');
   if (reveals.length && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
