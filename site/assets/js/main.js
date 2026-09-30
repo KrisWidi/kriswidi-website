@@ -23,12 +23,17 @@
   /* ---------- Sticky CTA hides when a form is visible ---------- */
   var sticky = document.querySelector('.sticky-cta');
   var forms = document.querySelectorAll('form.form');
-  if (sticky && forms.length && 'IntersectionObserver' in window) {
+  var heroes = document.querySelectorAll('.hero');
+  if (sticky && 'IntersectionObserver' in window) {
+    var watched = {};
     var io = new IntersectionObserver(function (entries) {
-      var visible = entries.some(function (e) { return e.isIntersecting; });
-      sticky.classList.toggle('hidden', visible);
-    }, { threshold: 0.1 });
-    forms.forEach(function (f) { io.observe(f); });
+      entries.forEach(function (e) { watched[e.target.dataset.stickyKey] = e.isIntersecting; });
+      var anyVisible = Object.keys(watched).some(function (k) { return watched[k]; });
+      sticky.classList.toggle('hidden', anyVisible);
+    }, { threshold: 0.05 });
+    var n = 0;
+    [].concat(Array.prototype.slice.call(forms), Array.prototype.slice.call(heroes)).forEach(function (el) { el.dataset.stickyKey = 's' + (n++); watched[el.dataset.stickyKey] = true; io.observe(el); });
+    sticky.classList.add('hidden');
   }
 
   /* ---------- Reveal on scroll ---------- */
