@@ -294,7 +294,11 @@
             <div class="field"><label for="f-interest">{{ f.interest }}</label>
               <select id="f-interest" name="interest">{% for o in f.interests %}<option value="{{ o }}"{% if o == b.interest %} selected{% endif %}>{{ o }}</option>{% endfor %}</select></div>
           </div>
-          <div class="field"><label for="f-link">{{ f.link }}</label><input id="f-link" name="link" type="url" placeholder="https://"></div>
+          <div class="row">
+            <div class="field"><label for="f-team">{{ f.team }}</label>
+              <select id="f-team" name="team">{% for o in f.teams %}<option value="{{ o }}"{% if loop.first %} selected{% endif %}>{{ o }}</option>{% endfor %}</select></div>
+            <div class="field"><label for="f-link">{{ f.link }}</label><input id="f-link" name="link" type="url" placeholder="https://"></div>
+          </div>
           <div class="field"><label for="f-msg">{{ f.message }}*</label><textarea id="f-msg" name="message" required></textarea></div>
         {% endif %}
         <label class="check"><input type="checkbox" name="privacy" required> <span>{{ f.privacy_pre }} <a href="{{ ui.footer.privacy_href }}">{{ f.privacy_link }}</a> {{ f.privacy_post }}*</span></label>
