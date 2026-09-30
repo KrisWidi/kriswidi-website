@@ -69,6 +69,7 @@ UI = {
         "industries": ["Reinigung & Hausbetreuung", "Handwerk", "Garten & Pool", "Gastronomie", "Ferienvermietung", "Praxis & Studio", "Andere"],
         "interests": ["Betriebs-App", "Betriebs-App + Website", "Neue Website", "Bestehende Website verbessern", "Sichtbarkeits-Check", "Noch unklar"],
         "link": "Link zu Website oder Instagram (optional)", "message": "Nachricht",
+        "team": "Mitarbeiter im Team", "teams": ["Bitte wählen", "Nur ich", "2–5", "6–10", "11–25", "Mehr als 25"],
         "business": "Betrieb", "link_site": "Link zu deiner Website", "link_google": "Link zum Google-Profil", "link_insta": "Link zu Instagram",
         "check_msg": "Was dich am meisten stört (optional)",
         "privacy_pre": "Ich habe die", "privacy_link": "Datenschutzerklärung", "privacy_post": "gelesen.",
@@ -131,8 +132,8 @@ HOME_FAQ = [
 ]
 HOME_FAQ = APP_HOME_FAQ
 PAGES.append({
-    "url": "/", "title": "Betriebs-App für Dienstleistungsbetriebe: Dienstplan, Zeiterfassung, Berichte – KWiDi",
-    "description": "Planen, stempeln, berichten – von der App aus. Dienstplan, Zeiterfassung und Arbeitsberichte für Reinigung, Hausbetreuung, Handwerk und Garten. Eingerichtet ab 249 €, dann 39 €/Monat. Dazu Websites, die gesehen werden.",
+    "url": "/", "title": "Betriebs-App für Unternehmer mit Team – KWiDi",
+    "description": "Dienstplan, Zeiterfassung, Berichte, Aufträge und Kosten in einer App – für Reinigung, Hausbetreuung, Handwerk, Garten. Ab 249 € Einrichtung, dann 39 €/Monat.",
     "template": "page",
     "jsonld": [
         {"@context": "https://schema.org", "@type": "Organization", "name": "KWiDi", "url": "https://kriswidi.com", "logo": "https://kriswidi.com/assets/img/logo-stacked.svg", "sameAs": []},
@@ -153,7 +154,7 @@ PAKETE_FAQ = [
 ]
 PAGES.append({
     "url": "/pakete", "title": "Preise: Betriebs-App ab 39 €/Monat, Website ab 549 € | KWiDi",
-    "description": "Alle Preise öffentlich: Betriebs-App 249 € Einrichtung + 39 €/Monat. Website ab 549 €, mit Google-Profil 729 €, mit Instagram & Facebook 1.490 €, Rundum 2.990 €. Kein Abo.",
+    "description": "Alle Preise öffentlich: Betriebs-App ab 249 € Einrichtung + 39 €/Monat, monatlich kündbar. Website ab 549 €, mit Google 729 €, mit Social 1.490 €.",
     "template": "page",
     "jsonld": [
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in PAKETE_FAQ]},
@@ -344,7 +345,7 @@ PAGES.append({
         {"type": "split", "image_left": True, "image": "how-map", "alt": "Hände zeichnen eine Karte mit Stecknadel auf Papier", "label": "Schritt 1", "h2": "Gefunden werden – das Google-Unternehmensprofil.", "paragraphs": ["Wenn jemand „Café in der Nähe“ oder „Ferienhaus Kroatien Meerblick“ eingibt, zeigt Google zuerst die Karte. Dort stehen Betriebe mit vollständigem Profil: Öffnungszeiten, Fotos, Bewertungen, Kategorie. Wer kein Profil hat oder eines mit drei Angaben, ist nicht auf der Karte. Das Profil kostet nichts – die Arbeit ist, es richtig zu machen. Genau das ist in Paket 2 drin."]},
         {"type": "split", "bg": "sand", "image": "how-phone", "alt": "Smartphone in der Hand, Display zeigt eine helle Seite", "label": "Schritt 2", "h2": "Überzeugen – die Website.", "paragraphs": ["Der Klick vom Profil führt auf deine Website. Jetzt hat der Gast eine Frage: Passt das zu mir? Er will Bilder, Preise, ein Gefühl für den Ort und einen Weg, dich zu erreichen. Alles auf dem Handy, in dreißig Sekunden. Eine Website, die das schafft, bringt Anfragen. Eine, die es nicht schafft, bringt nichts – egal wie schön sie ist."]},
         {"type": "split", "image_left": True, "image": "how-photos", "alt": "Stapel Fotos von Tellern und Terrassen auf Leinen", "label": "Schritt 3", "h2": "Im Kopf bleiben – Instagram und Facebook.", "paragraphs": ["Die meisten Gäste kommen nicht beim ersten Kontakt. Sie sehen dich, vergessen dich, sehen dich wieder – und dann kommen sie. Instagram und Facebook sorgen für das Wiedersehen. Dafür brauchst du kein tägliches Posten, sondern ein Profil, das wie ein Betrieb aussieht, und ein paar gute Beiträge zum Start. Das ist Paket 3."]},
-        {"type": "text", "bg": "sand", "h2": "Ist Instagram für kleine Betriebe überhaupt sinnvoll?", "paragraphs": ["Für Gastronomie, Studios und Ferienvermieter: ja, eindeutig – weil Bilder dort verkaufen. Für Handwerker: meistens reicht Google. Ich sage dir ehrlich, wenn du etwas nicht brauchst."]},
+        {"type": "text", "bg": "sand", "h2": "Ist Instagram für Dienstleistungsbetriebe überhaupt sinnvoll?", "paragraphs": ["Für Gastronomie, Studios und Ferienvermieter: ja, eindeutig – weil Bilder dort verkaufen. Für Handwerker: meistens reicht Google. Ich sage dir ehrlich, wenn du etwas nicht brauchst."]},
         {"type": "steps", "h2": "So läuft die Zusammenarbeit.", "items": [
             {"title": "Du fragst an.", "text": "Über das Formular, in zwei, drei Sätzen. Ich antworte innerhalb von 24 Stunden an Werktagen."},
             {"title": "Wir klären, was du brauchst.", "text": "Per E-Mail: Welches Paket, welche Inhalte, was du schon hast. Danach bekommst du ein Angebot."},
@@ -358,22 +359,22 @@ PAGES.append({
 
 # ---------------- ÜBER MICH ----------------
 PAGES.append({
-    "url": "/ueber-mich", "title": "Über KWiDi – Kristina, eine Ansprechpartnerin für alles",
-    "description": "Hinter KWiDi steht eine Person: Kristina. 6.000 Follower in 4 Monaten selbst aufgebaut, Online-Auftritte für Betriebe geführt. Kein Team, kein Ticketsystem.",
+    "url": "/ueber-mich", "title": "Über KWiDi – Kristina, Unternehmerin mit eigener App",
+    "description": "Mein Mann und ich führen einen Betrieb mit Mitarbeitern auf Mallorca. Weil keine App zu uns passte, haben wir unsere eigene entwickelt – jetzt gibt es sie für andere Betriebe.",
     "template": "page",
     "jsonld": [{"@context": "https://schema.org", "@type": "Person", "name": "Kristina", "jobTitle": "Gründerin", "worksFor": {"@type": "Organization", "name": "KWiDi", "url": "https://kriswidi.com"}}],
     "blocks": [
-        {"type": "hero", "label": "Über mich", "h1": "Hallo, ich bin Kristina.", "text": "Hinter KWiDi steht keine Agentur, sondern ich. Ich baue Websites und Online-Auftritte für kleine Betriebe – und erkläre dabei so, dass man versteht, was man kauft.", "image": "hero-kristina", "portrait": True, "alt": "Kristina, Gründerin von KWiDi"},
-        {"type": "split", "image": "about-hands", "alt": "Hände über einem Notizbuch, Espressotasse", "h2": "Warum KWiDi.", "paragraphs": ["Ich habe zu oft gesehen, wie kleine Betriebe Geld für eine Website ausgeben und dann nichts passiert. Nicht, weil die Website schlecht war. Sondern weil niemand ihnen gesagt hat, dass die Website nur ein Teil ist – und Google und Instagram die anderen zwei. KWiDi ist mein Versuch, das anders zu machen: alles aus einer Hand, zu einem Preis, den man sich leisten kann, und mit einer Erklärung, die man versteht."], "quote": "Der Name? Kristina Swiderski und Kiwi. Frisch, ehrlich, nicht kompliziert."},
+        {"type": "hero", "label": "Über mich", "h1": "Hallo, ich bin Kristina.", "text": "Hinter KWiDi steht keine Agentur, sondern ich – eine Unternehmerin, die dieselben Probleme kennt wie du. Mein Mann und ich führen einen eigenen Betrieb mit Mitarbeitern. Die Betriebs-App haben wir für uns entwickelt, weil nie eine andere zu uns gepasst hat.", "image": "hero-kristina", "portrait": True, "alt": "Kristina, Gründerin von KWiDi"},
+        {"type": "split", "frame": True, "image": "app-woche", "alt": "Wochenplan der Betriebs-App mit Einsätzen pro Mitarbeiter", "h2": "Warum es diese App gibt.", "paragraphs": ["Unser Betrieb auf Mallorca betreut Fincas und Ferienhäuser – mit Mitarbeitern, die den ganzen Tag unterwegs sind. Wir haben jede App ausprobiert, die es gibt: Zeiterfassung hier, Dienstplan dort, Berichte per WhatsApp, Belege im Handschuhfach. Nie hat eine wirklich zu uns gepasst.", "Also haben wir unsere eigene entwickelt. Eine App, die genau das kann, was ein Betrieb mit Team im Alltag braucht – und nichts, was ihn aufhält. Seitdem läuft unser Tag darüber: planen, stempeln, berichten, fertig.", "Genau das wünsche ich mir auch für andere Betriebe. Deshalb gibt es die App jetzt bei KWiDi: fertig eingerichtet für deinen Betrieb – oder komplett auf dich zugeschnitten, so wie wir sie uns damals selbst gewünscht hätten."], "quote": "Der Name? Kristina Swiderski und Kiwi. Frisch, ehrlich, nicht kompliziert."},
         {"type": "cards", "bg": "sand", "h2": "Was ich selbst aufgebaut habe.", "cols": 3, "items": [
-            {"big": "6.000", "title": "Follower in vier Monaten", "text": "Ein Instagram-Profil, organisch, ohne Anzeigen. Mit Beiträgen über Mallorca, wo ich lebe."},
-            {"big": "1", "title": "Premium-Dienstleister", "text": "Den Online-Auftritt eines Betriebs für Finca-Betreuung und Vermietung: Website, Google-Profil, Social Media, laufende Betreuung."},
+            {"big": "1", "title": "Betriebs-App aus dem eigenen Alltag", "text": "Entwickelt für unseren Betrieb mit Mitarbeitern – Dienstplan, Zeiterfassung, Berichte, Kosten. Im täglichen Einsatz, bevor sie für andere verfügbar wurde."},
+            {"big": "6.000", "title": "Follower in vier Monaten", "text": "Ein Instagram-Profil, organisch, ohne Anzeigen – dazu Website und Google-Profil unseres Betriebs für Finca-Betreuung und Vermietung."},
             {"big": "Bald", "title": "Die ersten KWiDi-Kunden", "text": "Die ersten Betriebe bekommen einen Sonderpreis – dafür darf ich sie hier zeigen.", "href": "#anfrage", "link_text": "Anfragen"},
         ]},
         {"type": "cards", "h2": "Wie ich arbeite.", "cols": 2, "items": [
             {"title": "Per E-Mail.", "text": "Nicht, weil ich nicht reden mag – sondern weil so alles nachlesbar bleibt und ich mich konzentriert um dein Projekt kümmern kann. Du bekommst innerhalb von 24 Stunden an Werktagen eine Antwort."},
-            {"title": "Zum Festpreis.", "text": "Du weißt vorher, was es kostet. Ohne Abo, ohne Überraschung."},
-            {"title": "Ehrlich.", "text": "Wenn du etwas nicht brauchst, sage ich es. Ein Handwerker braucht kein Instagram. Ein Café schon."},
+            {"title": "Klare Preise.", "text": "Einrichtung einmalig, App monatlich kündbar, Websites einmal bezahlt. Du weißt vorher, was es kostet – ohne Überraschung."},
+            {"title": "Ehrlich.", "text": "Wenn du etwas nicht brauchst, sage ich es. Ein Betrieb mit zwei Leuten braucht kein Individuell-Paket. Einer mit zwanzig meistens schon."},
             {"title": "Danach erreichbar.", "text": "Änderungswünsche in einem Jahr? Schreib mir. Gleiche Person, gleiche Adresse."},
         ]},
         FORM,
@@ -388,7 +389,7 @@ PAGES.append({
     "jsonld": [{"@context": "https://schema.org", "@type": "ContactPage", "name": "Kontakt – KWiDi", "url": "https://kriswidi.com/kontakt"}],
     "blocks": [
         {"type": "form", "bg": "ivory", "as_h1": True, "h2": "Lass uns kurz schauen, was für dich passt.", "text": "Schreib mir, was du vorhast – zwei, drei Sätze reichen. Ich antworte innerhalb von 24 Stunden an Werktagen, per E-Mail. Kein Verkaufsgespräch, keine Warteschleife.",
-         "aside": ["<b>Schon eine Website?</b> Dann ist der Sichtbarkeits-Check vielleicht der bessere erste Schritt. <a class=\"link\" href=\"/sichtbarkeits-check\">Mehr</a>"]},
+         "aside": ["<b>Nicht sicher, ob Standard oder Individuell?</b> Schreib einfach, wie viele Leute im Team sind und was dich heute am meisten Zeit kostet – ich sage dir ehrlich, was passt. <a class=\"link\" href=\"/betriebs-app#preise\">Preise ansehen</a>"]},
     ],
 })
 

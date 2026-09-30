@@ -79,6 +79,7 @@ UI = {
         "industries": ["Cleaning & property care", "Trades", "Garden & pool", "Restaurant / café / bar", "Holiday rental", "Practice & studio", "Other"],
         "interests": ["Business app", "Business app + website", "New website", "Improve existing website", "Visibility check", "Not sure yet"],
         "link": "Link to website or Instagram (optional)", "message": "Message",
+        "team": "Employees on your team", "teams": ["Please choose", "Just me", "2–5", "6–10", "11–25", "More than 25"],
         "business": "Business", "link_site": "Link to your website", "link_google": "Link to Google profile", "link_insta": "Link to Instagram",
         "check_msg": "What bothers you most (optional)",
         "privacy_pre": "I have read the", "privacy_link": "privacy policy", "privacy_post": ".",
@@ -139,8 +140,8 @@ HOME_FAQ = [
 ]
 HOME_FAQ = APP_HOME_FAQ
 PAGES.append({
-    "url": "/en/", "title": "Business app for service businesses: rota, time tracking, reports – KWiDi",
-    "description": "Plan, clock in, report – from the app. Rota, time tracking and work reports for cleaning, property care, trades and gardening. Set up from €249, then €39/month. Plus websites that get seen.",
+    "url": "/en/", "title": "Business app for owners with a team – KWiDi",
+    "description": "Rota, time tracking, reports, jobs and expenses in one app – for cleaning, property care, trades, gardening. Setup from €249, then €39/month.",
     "template": "page",
     "jsonld": [
         {"@context": "https://schema.org", "@type": "Organization", "name": "KWiDi", "url": "https://kriswidi.com", "logo": "https://kriswidi.com/assets/img/logo-stacked.svg", "sameAs": []},
@@ -334,7 +335,7 @@ PAGES.append({
         {"type": "split", "image_left": True, "image": "how-map", "alt": "Hands drawing a map with a pin on paper", "label": "Step 1", "h2": "Get found – the Google Business Profile.", "paragraphs": ["When someone types “café near me” or “holiday home Croatia sea view”, Google shows the map first. There you find businesses with a complete profile: opening hours, photos, reviews, category. Whoever has no profile, or one with three details, isn't on the map. The profile costs nothing – the work is doing it right. That's exactly what's in package 2."]},
         {"type": "split", "bg": "sand", "image": "how-phone", "alt": "Smartphone in hand, screen shows a light page", "label": "Step 2", "h2": "Convince – the website.", "paragraphs": ["The click from the profile leads to your website. Now the guest has one question: is this for me? They want pictures, prices, a feel for the place and a way to reach you. All on the phone, in thirty seconds. A website that manages that brings enquiries. One that doesn't brings nothing – no matter how pretty."]},
         {"type": "split", "image_left": True, "image": "how-photos", "alt": "Stack of photos of plates and terraces on linen", "label": "Step 3", "h2": "Stay in mind – Instagram and Facebook.", "paragraphs": ["Most guests don't come at first contact. They see you, forget you, see you again – and then they come. Instagram and Facebook take care of the reunion. For that you don't need daily posting, but a profile that looks like a business and a few good posts to start. That's package 3."]},
-        {"type": "text", "bg": "sand", "h2": "Is Instagram even worth it for small businesses?", "paragraphs": ["For restaurants, studios and holiday rentals: yes, clearly – because pictures sell there. For trades: usually Google is enough. I'll tell you honestly if you don't need something."]},
+        {"type": "text", "bg": "sand", "h2": "Is Instagram even worth it for service businesses?", "paragraphs": ["For restaurants, studios and holiday rentals: yes, clearly – because pictures sell there. For trades: usually Google is enough. I'll tell you honestly if you don't need something."]},
         {"type": "steps", "h2": "How the collaboration works.", "items": [
             {"title": "You get in touch.", "text": "Via the form, in two or three sentences. I reply within 24 hours on working days."},
             {"title": "We clarify what you need.", "text": "By email: which package, which content, what you already have. Then you get a quote."},
@@ -347,21 +348,21 @@ PAGES.append({
 })
 
 PAGES.append({
-    "url": "/en/about", "title": "About KWiDi – Kristina, one contact for everything",
-    "description": "Behind KWiDi is one person: Kristina. 6,000 followers in 4 months built herself, online presences run for businesses. No team, no ticket system.",
+    "url": "/en/about", "title": "About KWiDi – Kristina, business owner with her own app",
+    "description": "My husband and I run a business with employees on Mallorca. No app ever fitted us, so we built our own – now it is available for other businesses.",
     "template": "page", "jsonld": [],
     "blocks": [
-        {"type": "hero", "label": "About", "h1": "Hi, I'm Kristina.", "text": "Behind KWiDi is not an agency, but me. I build websites and online presences for small businesses – and explain it so you understand what you're buying.", "image": "hero-kristina", "portrait": True, "alt": "Kristina, founder of KWiDi"},
-        {"type": "split", "image": "about-hands", "alt": "Hands over a notebook, espresso cup", "h2": "Why KWiDi.", "paragraphs": ["I've seen too often how small businesses spend money on a website and then nothing happens. Not because the website was bad. But because nobody told them that the website is only one part – and Google and Instagram are the other two. KWiDi is my attempt to do it differently: everything from one person, at a price you can afford, with an explanation you understand."], "quote": "The name? Kristina Swiderski and kiwi. Fresh, honest, uncomplicated."},
+        {"type": "hero", "label": "About", "h1": "Hi, I'm Kristina.", "text": "Behind KWiDi is not an agency, but me – a business owner who knows the same problems you do. My husband and I run our own business with employees. We built the business app for ourselves because no other app ever fitted us.", "image": "hero-kristina", "portrait": True, "alt": "Kristina, founder of KWiDi"},
+        {"type": "split", "frame": True, "image": "app-woche", "alt": "Weekly rota of the business app with visits per employee", "h2": "Why this app exists.", "paragraphs": ["Our business on Mallorca looks after fincas and holiday homes – with employees who are out and about all day. We tried every app there is: time tracking here, rota there, reports via WhatsApp, receipts in the glove box. None of them ever really fitted us.", "So we built our own. An app that does exactly what a business with a team needs day to day – and nothing that slows it down. Our whole day runs on it now: plan, clock in, report, done.", "That is exactly what I want for other businesses too. That is why the app is now available through KWiDi: set up ready for your business – or tailored completely to you, the way we would have wished for back then."], "quote": "The name? Kristina Swiderski and kiwi. Fresh, honest, uncomplicated."},
         {"type": "cards", "bg": "sand", "h2": "What I've built myself.", "cols": 3, "items": [
-            {"big": "6,000", "title": "followers in four months", "text": "An Instagram profile, organic, no ads. With posts about Mallorca, where I live."},
-            {"big": "1", "title": "premium service business", "text": "The online presence of a finca management and rental business: website, Google profile, social media, ongoing support."},
+            {"big": "1", "title": "business app from our own daily work", "text": "Built for our business with employees – rota, time tracking, reports, expenses. In daily use before it became available to others."},
+            {"big": "6,000", "title": "followers in four months", "text": "An Instagram profile, organic, no ads – plus the website and Google profile of our finca management and rental business."},
             {"big": "Soon", "title": "The first KWiDi clients", "text": "The first businesses get a special price – in return I get to show them here.", "href": "#anfrage", "link_text": "Get in touch"},
         ]},
         {"type": "cards", "h2": "How I work.", "cols": 2, "items": [
             {"title": "By email.", "text": "Not because I don't like talking – but because everything stays on record and I can focus on your project. You get a reply within 24 hours on working days."},
-            {"title": "At a fixed price.", "text": "You know beforehand what it costs. No subscription, no surprise."},
-            {"title": "Honestly.", "text": "If you don't need something, I say so. A tradesperson doesn't need Instagram. A café does."},
+            {"title": "Clear prices.", "text": "Setup once, app cancellable monthly, websites paid once. You know beforehand what it costs – no surprises."},
+            {"title": "Honestly.", "text": "If you don't need something, I say so. A two-person business doesn't need the Custom package. A twenty-person one usually does."},
             {"title": "Reachable afterwards.", "text": "Changes in a year? Write to me. Same person, same address."},
         ]},
         FORM,
@@ -373,7 +374,7 @@ PAGES.append({
     "description": "Tell me briefly what you have in mind. Reply within 24 hours on working days – by email, no phone appointment.",
     "template": "page", "jsonld": [],
     "blocks": [{"type": "form", "bg": "ivory", "as_h1": True, "h2": "Let's see what fits you.", "text": "Tell me what you have in mind – two or three sentences are enough. I reply within 24 hours on working days, by email. No sales talk, no queue.",
-                "aside": ["<b>Already have a website?</b> Then the visibility check might be the better first step. <a class=\"link\" href=\"/en/visibility-check\">More</a>"]}],
+                "aside": ["<b>Not sure whether Standard or Custom?</b> Just tell me how many people are on your team and what costs you the most time today – I'll tell you honestly what fits. <a class=\"link\" href=\"/en/business-app#preise\">See prices</a>"]}],
 })
 
 PAGES.append({"url": "/en/thank-you", "title": "Thank you – KWiDi", "description": "Your message has arrived.", "template": "page", "noindex": True, "lead": True, "jsonld": [],

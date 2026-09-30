@@ -122,12 +122,12 @@ APP_FAQ = [
 ]
 
 APP_PAGE = {
-    "url": APP_URL, "title": "Business app for service businesses – rota, time tracking, reports | KWiDi",
-    "description": "Rota, time tracking, work reports with photos, jobs and expenses in one app. Set up for your business: €249 one-off, then €39/month. Cancel monthly.",
+    "url": APP_URL, "title": "Business app: rota, time tracking, reports | KWiDi",
+    "description": "Rota, time tracking, reports with photos, jobs and expenses in one app. Setup from €249, then €39/month, cancel monthly.",
     "template": "page",
     "jsonld": [
         {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Business app by KWiDi", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://kriswidi.com" + APP_URL,
-         "description": "Rota, time tracking, work reports, jobs, requests and expenses for small service businesses.",
+         "description": "Rota, time tracking, work reports, jobs, requests and expenses for service businesses with a team.",
          "offers": [{"@type": "Offer", "name": "Setup", "price": "249", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Monthly, 1 employee included", "price": "39", "priceCurrency": "EUR"}],
          "provider": {"@type": "Organization", "name": "KWiDi", "url": "https://kriswidi.com"}},
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in APP_FAQ]},

@@ -123,12 +123,12 @@ APP_FAQ = [
 ]
 
 APP_PAGE = {
-    "url": APP_URL, "title": "Betriebs-App für Dienstleistungsbetriebe – Dienstplan, Zeiterfassung, Berichte | KWiDi",
-    "description": "Dienstplan, Zeiterfassung, Arbeitsberichte mit Fotos, Aufträge und Kosten in einer App. Eingerichtet für deinen Betrieb: 249 € einmalig, dann 39 €/Monat. Monatlich kündbar.",
+    "url": APP_URL, "title": "Betriebs-App: Dienstplan, Zeiterfassung, Berichte | KWiDi",
+    "description": "Dienstplan, Zeiterfassung, Berichte mit Fotos, Aufträge und Kosten in einer App. Eingerichtet ab 249 €, dann 39 €/Monat, monatlich kündbar.",
     "template": "page",
     "jsonld": [
         {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Betriebs-App by KWiDi", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://kriswidi.com" + APP_URL,
-         "description": "Dienstplan, Zeiterfassung, Arbeitsberichte, Aufträge, Anträge und Kosten für kleine Dienstleistungsbetriebe.",
+         "description": "Dienstplan, Zeiterfassung, Arbeitsberichte, Aufträge, Anträge und Kosten für Dienstleistungsbetriebe mit Team.",
          "offers": [{"@type": "Offer", "name": "Einrichtung", "price": "249", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Monatlich, 1 Mitarbeiter inklusive", "price": "39", "priceCurrency": "EUR"}],
          "provider": {"@type": "Organization", "name": "KWiDi", "url": "https://kriswidi.com"}},
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in APP_FAQ]},
