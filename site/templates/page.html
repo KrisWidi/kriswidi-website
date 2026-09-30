@@ -40,11 +40,11 @@
 {% elif b.type == 'text' %}
 <section class="section bg-{{ bg }}{% if b.hairline %} hairline{% endif %}">
   <div class="wrap reveal">
-    <div class="stack {% if b.center %}center{% endif %}" style="max-width:64ch">
-      {% if b.label %}<span class="label">{{ b.label }}</span>{% endif %}
-      <h2>{{ b.h2 }}</h2>
-      {% for p in b.paragraphs %}<p{% if loop.first and b.lede %} class="lede"{% endif %}>{{ p | safe }}</p>{% endfor %}
-      {% if b.link %}<p><a class="link" href="{{ b.link.href }}">{{ b.link.text }}</a></p>{% endif %}
+    <div class="stack {% if b.center %}center{% else %}text-two{% endif %}" style="max-width:64ch">
+      <div class="stack-head">{% if b.label %}<span class="label">{{ b.label }}</span>{% endif %}
+      <h2>{{ b.h2 }}</h2></div>
+      <div class="stack-body">{% for p in b.paragraphs %}<p{% if loop.first and b.lede %} class="lede"{% endif %}>{{ p | safe }}</p>{% endfor %}
+      {% if b.link %}<p><a class="link" href="{{ b.link.href }}">{{ b.link.text }}</a></p>{% endif %}</div>
     </div>
   </div>
 </section>
@@ -127,7 +127,7 @@
 {% elif b.type == 'split' %}
 <section class="section bg-{{ bg }}"{% if b.id %} id="{{ b.id }}"{% endif %}>
   <div class="wrap reveal">
-    <div class="split {% if b.image_left %}media-left{% endif %}">
+    <div class="split {% if b.image_left %}media-left{% endif %}{% if b.frame %} wide-media{% endif %}">
       <div class="copy">
         {% if b.label %}<span class="label">{{ b.label }}</span>{% endif %}
         <h2>{{ b.h2 }}</h2>
