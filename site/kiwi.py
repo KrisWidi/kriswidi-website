@@ -14,12 +14,12 @@ def kiwi_svg(n):
     rays = "".join('<line x1="%s" y1="%s" x2="%.2f" y2="%.2f"/>' % (cx, cy, cx + (sd["sx"] - cx) * 0.78, cy + (sd["sy"] - cy) * 0.78) for sd in seeds)
     svg = (
         '<svg class="kiwi-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 58" aria-hidden="true" focusable="false">'
-        '<path d="M%(l)s %(cy)sA%(R)s %(R)s 0 0 1 %(rr)s %(cy)sZ" fill="#8FA748"/>'
+        '<path d="M%(l)s %(cy)sA%(R)s %(R)s 0 0 1 %(rr)s %(cy)sZ" fill="#7A8A4E"/>'
         '<path d="M%(l2)s %(cy)sA%(R2)s %(R2)s 0 0 1 %(rr2)s %(cy)sZ" fill="#9DB255" opacity=".55"/>'
         '<path d="M%(l3)s %(cy)sA15 15 0 0 1 %(rr3)s %(cy)sZ" fill="#E4EAD0"/>'
-        '<g stroke="#33261D" stroke-width=".7" opacity=".55">%(rays)s</g>'
-        '<path d="M%(l)s %(cy)sA%(R)s %(R)s 0 0 1 %(rr)s %(cy)sZ" fill="none" stroke="#33261D" stroke-width="3" stroke-linejoin="miter"/>'
-        '<path d="M%(l4)s %(cy)sA5 5 0 0 1 %(rr4)s %(cy)sZ" fill="#33261D"/>'
+        '<g stroke="#2A2119" stroke-width=".7" opacity=".55">%(rays)s</g>'
+        '<path d="M%(l)s %(cy)sA%(R)s %(R)s 0 0 1 %(rr)s %(cy)sZ" fill="none" stroke="#2A2119" stroke-width="3" stroke-linejoin="miter"/>'
+        '<path d="M%(l4)s %(cy)sA5 5 0 0 1 %(rr4)s %(cy)sZ" fill="#2A2119"/>'
         '</svg>'
     ) % {"cy": cy, "R": R, "l": cx - R, "rr": cx + R, "R2": R - 12, "l2": cx - R + 12, "rr2": cx + R - 12,
          "l3": cx - 15, "rr3": cx + 15, "l4": cx - 5, "rr4": cx + 5, "rays": rays}

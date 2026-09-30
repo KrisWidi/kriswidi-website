@@ -61,7 +61,7 @@ def placeholder_svg(name, ratio, grad, caption):
 <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{c1}"/><stop offset="1" stop-color="{c2}"/></linearGradient>
 <filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3"/><feColorMatrix values="0 0 0 0 0.2 0 0 0 0 0.15 0 0 0 0 0.11 0 0 0 0.08 0"/></filter></defs>
 <rect width="{w}" height="{h}" fill="url(#g)"/><rect width="{w}" height="{h}" filter="url(#n)"/>
-<text x="40" y="{h-40}" font-family="Jost,Avenir Next,system-ui,sans-serif" font-size="22" letter-spacing="2" fill="#33261D" opacity=".6">{caption.upper()}</text>
+<text x="40" y="{h-40}" font-family="Jost,Avenir Next,system-ui,sans-serif" font-size="22" letter-spacing="2" fill="#2A2119" opacity=".6">{caption.upper()}</text>
 </svg>'''
 
 def image(name, alt=""):
