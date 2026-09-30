@@ -242,7 +242,7 @@
     <div class="section-head"><h2>{{ b.h2 }}</h2>{% if b.intro %}<p>{{ b.intro }}</p>{% endif %}</div>
     <div class="table-wrap"><table>
       <thead><tr>{% for h in b.head %}<th scope="col">{{ h }}</th>{% endfor %}</tr></thead>
-      <tbody>{% for r in b.rows %}<tr>{% for c in r %}{% if loop.first %}<th scope="row">{{ c }}</th>{% elif loop.last %}<td class="win">{{ c }}</td>{% else %}<td>{{ c }}</td>{% endif %}{% endfor %}</tr>{% endfor %}</tbody>
+      <tbody>{% for r in b.rows %}<tr>{% for c in r %}{% if loop.first %}<th scope="row">{{ c }}</th>{% elif loop.last %}<td class="win" data-label="{{ b.head[loop.index0] }}">{{ c }}</td>{% else %}<td data-label="{{ b.head[loop.index0] }}">{{ c }}</td>{% endif %}{% endfor %}</tr>{% endfor %}</tbody>
     </table></div>
     {% if b.note %}<p class="table-note">{{ b.note }}</p>{% endif %}
   </div>
