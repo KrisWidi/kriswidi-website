@@ -93,7 +93,7 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       // Honeypot
-      var hp = form.querySelector('input[name="website_url"]');
+      var hp = form.querySelector('input[name="_gotcha"]');
       if (hp && hp.value) return;
       var required = form.querySelectorAll('[required]');
       var ok = true;
