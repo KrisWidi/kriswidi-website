@@ -270,11 +270,9 @@
       {% set f = ui.form %}
       <form class="form" method="post" action="{{ site.form_endpoint }}" data-thanks="{{ ui.thanks_url }}" novalidate>
         <input type="hidden" name="_subject" value="{{ 'Sichtbarkeits-Check' if b.variant == 'check' else 'Anfrage' }} – kriswidi.com">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="language" value="{{ lang }}">
         <input type="hidden" name="page" value="{{ page.url }}">
-        <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website_url" tabindex="-1" autocomplete="off"></label></div>
+        <div class="hp" aria-hidden="true"><label>Website<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
         <div class="row">
           <div class="field"><label for="f-name">{{ f.name }}*</label><input id="f-name" name="name" type="text" required autocomplete="name"></div>
           <div class="field"><label for="f-email">{{ f.email }}*</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
