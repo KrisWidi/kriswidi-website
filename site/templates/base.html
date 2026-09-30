@@ -22,7 +22,7 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/CormorantGaramond-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/Outfit-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Lora-Variable.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/assets/css/main.css">
 <script src="/assets/js/config.js"></script>
 {% for ld in page.jsonld %}<script type="application/ld+json">{{ ld | tojson }}</script>
@@ -83,7 +83,7 @@
       <div class="col">
         <div class="brand">{{ signet | safe }}<span class="wordmark">KWiDi</span></div>
         <p style="margin-top:12px"><b>{{ ui.footer.claim }}</b></p>
-        <p class="muted" style="color:#AD9C8A">{{ ui.footer.text }}</p>
+        <p class="muted">{{ ui.footer.text }}</p>
       </div>
       <div class="col">
         <span class="label">{{ ui.footer.pages_label }}</span>
@@ -96,7 +96,7 @@
       <div class="col">
         <span class="label">{{ ui.footer.contact_label }}</span>
         <a href="{{ ui.cta_href }}">{{ ui.footer.contact_link }}</a>
-        <span style="color:#AD9C8A">{{ ui.footer.reply }}</span>
+        <span class="muted">{{ ui.footer.reply }}</span>
       </div>
     </div>
     <div class="legal">
