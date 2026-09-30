@@ -64,24 +64,10 @@ def placeholder_svg(name, ratio, grad, caption):
 <text x="40" y="{h-40}" font-family="Jost,Avenir Next,system-ui,sans-serif" font-size="22" letter-spacing="2" fill="#33261D" opacity=".6">{caption.upper()}</text>
 </svg>'''
 
-def _dims(path):
-    try:
-        from PIL import Image
-        with Image.open(path) as im:
-            return f' width="{im.width}" height="{im.height}"'
-    except Exception:
-        return ""
-
 def image(name, alt=""):
-    """<img> mit width/height (kein Layout-Springen); liegt <name>-m.<ext> vor, wird sie auf Mobil (≤820 px) ausgeliefert."""
     for ext in ("jpg", "jpeg", "webp", "png"):
-        p = os.path.join(IMG_DIR, f"{name}.{ext}")
-        if os.path.exists(p):
-            img = f'<img src="/assets/img/{name}.{ext}" alt="{alt}"{_dims(p)} loading="lazy" decoding="async">'
-            pm = os.path.join(IMG_DIR, f"{name}-m.{ext}")
-            if os.path.exists(pm):
-                return f'<picture><source media="(max-width:820px)" srcset="/assets/img/{name}-m.{ext}">{img}</picture>'
-            return img
+        if os.path.exists(os.path.join(IMG_DIR, f"{name}.{ext}")):
+            return f'<img src="/assets/img/{name}.{ext}" alt="{alt}" loading="lazy" decoding="async">'
     return f'<img src="/assets/img/placeholders/{name}.svg" alt="{alt}" loading="lazy" decoding="async">'
 
 from kiwi import kiwi_svg
