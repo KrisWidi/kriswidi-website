@@ -56,7 +56,7 @@ UI = {
     },
     "consent": {
         "title": "Kurz zu Cookies.",
-        "text": "Ich nutze Cookies für Statistik und Werbung (Google Analytics, Meta-Pixel), damit ich sehe, was auf der Seite gut funktioniert. Du entscheidest.",
+        "text": "Nur mit deiner Zustimmung setze ich Cookies für Statistik und Werbung (Google Analytics, Meta-Pixel), damit ich sehe, was auf der Seite gut funktioniert. Ohne Zustimmung bleibt es bei den technisch notwendigen.",
         "link": "Details in der Datenschutzerklärung.",
         "all": "Alle akzeptieren", "none": "Nur notwendige", "settings": "Einstellungen", "save": "Auswahl speichern",
         "necessary": "Notwendig (immer aktiv)", "analytics": "Statistik (Google Analytics)", "marketing": "Werbung (Meta-Pixel)",
@@ -240,7 +240,7 @@ PAGES.append({
             {"title": "Instagram und Facebook", "text": "Wirkt das Profil wie ein Betrieb oder wie ein Privatkonto? Gibt es einen Weg zur Website?"},
         ]},
         {"type": "split", "image": "check-note", "alt": "Ein Blatt Papier mit drei handschriftlichen Punkten, Espressotasse, Kiwi-Scheibe", "h2": "Eine E-Mail. Drei bis fünf Punkte. Klartext.", "paragraphs": ["Kein automatischer Report mit Punktzahlen, sondern meine Einschätzung: Was fehlt, was stört, was zuerst dran ist – und was du davon selbst erledigen kannst. Innerhalb von drei Werktagen."]},
-        {"type": "highlight", "h2": "60 € – und bei Buchung geschenkt.", "paragraphs": ["Der Check kostet 60 € netto. Entscheidest du dich danach für ein Paket, ziehe ich die 60 € komplett ab. Du verlierst also nichts – außer der Ungewissheit."], "big": "60 €"},
+        {"type": "highlight", "h2": "60 € – bei Buchung voll angerechnet.", "paragraphs": ["Der Check kostet 60 € netto. Entscheidest du dich danach für ein Paket, ziehe ich die 60 € komplett ab. Du verlierst also nichts – außer der Ungewissheit."], "big": "60 €"},
         {"type": "steps", "inline": True, "h2": "So läuft es", "items": [
             {"text": "Du schickst mir die Links (Website, Google-Profil, Instagram – was du hast)."},
             {"text": "Ich schaue hin und schreibe dir innerhalb von drei Werktagen."},
@@ -447,18 +447,16 @@ DATENSCHUTZ_HTML = """
 <h2>4. Kontaktformular und E-Mail</h2>
 <p>Wenn du uns über das Formular oder per E-Mail kontaktierst, verarbeiten wir die von dir angegebenen Daten (Name, E-Mail-Adresse, Angaben zum Betrieb, Nachricht, optional Links) zur Bearbeitung deiner Anfrage und für Anschlussfragen (Art. 6 Abs. 1 lit. b DSGVO). Die Formulardaten werden über den Dienst Formspree (Formspree, Inc., 2261 Market Street #4014, San Francisco, CA 94114, USA) an unsere E-Mail-Adresse weitergeleitet; der Anbieter verarbeitet die Daten ausschließlich zur Zustellung und speichert sie in unserem Formspree-Konto, wo wir sie nach Bearbeitung löschen. Formspree ist nach dem EU-US Data Privacy Framework zertifiziert (Art. 45 DSGVO); Details: <a href="https://formspree.io/legal/privacy-policy/" rel="noopener" target="_blank">formspree.io/legal/privacy-policy</a>. Wir speichern Anfragen, bis die Bearbeitung abgeschlossen ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
 <h2>5. Cookies und Einwilligung</h2>
-<p>Technisch notwendige Cookies bzw. Speichervorgänge (z. B. deine Cookie-Auswahl) setzen wir ohne Einwilligung ein (§ 25 Abs. 2 TDDDG). Statistik- und Marketing-Cookies werden erst gesetzt, wenn du im Cookie-Banner zustimmst. Deine Auswahl wird lokal in deinem Browser gespeichert und kann jederzeit über „Cookie-Einstellungen“ im Footer geändert oder widerrufen werden.</p>
+<p>Technisch notwendige Cookies bzw. Speichervorgänge (z. B. deine Cookie-Auswahl) setzen wir ohne Einwilligung ein (Art. 22.2 LSSI-CE, § 25 Abs. 2 TDDDG). Statistik- und Marketing-Cookies werden erst gesetzt, wenn du im Cookie-Banner zustimmst. Deine Auswahl wird lokal in deinem Browser gespeichert und kann jederzeit über „Cookie-Einstellungen“ im Footer geändert oder widerrufen werden.</p>
 <h2>6. Google Analytics 4</h2>
 <p>Mit deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) nutzen wir Google Analytics 4 der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Google Analytics verwendet Cookies und ähnliche Technologien, um die Nutzung der Website auszuwerten. IP-Adressen werden gekürzt verarbeitet. Daten können an Google LLC in die USA übermittelt werden; Google ist nach dem EU-US Data Privacy Framework zertifiziert. Wir setzen den Google Consent Mode ein, sodass ohne Einwilligung keine Cookies gesetzt werden. Speicherdauer: 14 Monate. Weitere Informationen: <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">policies.google.com/privacy</a>.</p>
 <h2>7. Meta-Pixel (Facebook, Instagram)</h2>
 <p>Mit deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) nutzen wir das Meta-Pixel der Meta Platforms Ireland Limited, Merrion Road, Dublin 4, Irland, um die Wirksamkeit unserer Anzeigen zu messen und Zielgruppen zu bilden. Dabei können Daten an Meta Platforms Inc. in die USA übermittelt werden; Meta ist nach dem EU-US Data Privacy Framework zertifiziert. Wir sind mit Meta gemeinsam verantwortlich im Sinne von Art. 26 DSGVO für die Erhebung und Übermittlung; die weitere Verarbeitung verantwortet Meta. Informationen: <a href="https://www.facebook.com/privacy/policy" rel="noopener" target="_blank">facebook.com/privacy/policy</a>.</p>
 <h2>8. Schriftarten</h2>
 <p>Die verwendeten Schriften (Cormorant Garamond, Lora) werden lokal auf unserem Server bereitgestellt. Es findet keine Verbindung zu Servern von Google statt.</p>
-<h2>9. Links zu Instagram und Facebook</h2>
-<p>Unsere Website enthält Links zu unseren Profilen bei Instagram und Facebook. Es werden keine Inhalte dieser Plattformen eingebettet; erst beim Klick auf einen Link verlässt du unsere Website und es gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</p>
-<h2>10. Deine Rechte</h2>
+<h2>9. Deine Rechte</h2>
 <p>Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21 DSGVO). Eine erteilte Einwilligung kannst du jederzeit mit Wirkung für die Zukunft widerrufen. Außerdem hast du das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren – in Spanien bei der Agencia Española de Protección de Datos (AEPD), in Deutschland bei der für dich zuständigen Landesbehörde.</p>
-<h2>11. Änderungen</h2>
+<h2>10. Änderungen</h2>
 <p>Wir passen diese Erklärung an, wenn sich die Rechtslage oder unsere Leistungen ändern. Es gilt die jeweils hier veröffentlichte Fassung.</p>
 """
 PAGES.append({"url": "/datenschutz", "title": "Datenschutzerklärung – KWiDi", "description": "Datenschutzerklärung von KWiDi.", "template": "page", "noindex": True, "jsonld": [],
